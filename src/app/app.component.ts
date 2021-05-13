@@ -15,9 +15,14 @@ export class AppComponent implements OnInit {
     ) { }
 
     public ngOnInit(): void {
+        /* this.addScript('https://d3js.org/d3.v4.min.js');
+        this.addScript('js/sentimentGauge.js'); */
+    }
+
+    public addScript(src: string, type?: string, ): void {
         let script = this._renderer2.createElement('script');
-        script.type = `application/json`;
-        script.src = "https://d3js.org/d3.v4.min.js";
+        script.type = type || `application/json`;
+        script.src = src;
 
         this._renderer2.appendChild(this._document.body, script);
     }

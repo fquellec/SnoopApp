@@ -1,3 +1,4 @@
+import { GraphsModule } from './../graphs/graphs.module';
 import { CoreComponentsModule } from './../core-components/core-component.module';
 import { NgModule } from '@angular/core';
 import { SamplePageComponent } from './components/sample-page/sample-page.component';
@@ -5,7 +6,7 @@ import { SamplePageComponent } from './components/sample-page/sample-page.compon
 @NgModule({
 
     declarations: [SamplePageComponent],
-    imports: [CoreComponentsModule],
+    imports: [CoreComponentsModule, GraphsModule],
     exports: [SamplePageComponent]
 })
 export class PagesModule { }

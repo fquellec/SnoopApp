@@ -1,8 +1,8 @@
 <div class="card-container">
-    <div class="card-header">
-        <h1>Title</h1>
+    <div class="card-header" *ngIf="title">
+        <h1>{{ title }}</h1>
     </div>
     <div class="card-content">
-        <div id="chart-gauge"></div>
+        <ng-content></ng-content>
     </div>
 </div>
