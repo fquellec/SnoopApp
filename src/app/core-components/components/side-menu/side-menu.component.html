@@ -1,0 +1,9 @@
+<div class="side-menu">
+    <div class="menu-content">
+        <div class="menu-item" *ngFor="let title of titles" [ngClass]="{ 'selected': selectedMenu === title}">
+            <div class="menu-item-title" (click)="changeSelectedMenu(title)">
+                {{ title }}
+            </div>
+        </div>
+    </div>
+</div>

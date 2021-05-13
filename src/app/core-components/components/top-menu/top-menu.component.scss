@@ -1,0 +1,48 @@
+.top-menu {
+    align-items: center;
+    background-color: var(--blue-sherpa);
+    border-bottom: 1px solid white;
+    color: white;
+    display: grid;
+    grid-template-columns: max-content auto max-content;
+    justify-items: center;
+    font-weight: 800;
+    height: 60px;
+    padding: 10px 50px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+
+    h1 {
+        margin: 0;
+        width: 200px;
+    }
+
+    .left-items {
+        width: 200px;
+    }
+
+    .right-items {
+        .languages {
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            grid-gap: 6px;
+
+            .lang-item {
+                cursor: pointer;
+                font-weight: 600;
+
+                &.selected {
+                    border-bottom: 1px solid white;
+                    cursor: default;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+
+    ana-search-bar-component {
+        width: 100%;
+    }
+  }

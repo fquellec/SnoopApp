@@ -1,0 +1,13 @@
+<div class="top-menu" role="banner">
+    <div class="left-items menu-items">
+        <h1>Snoop</h1>
+    </div>
+    <ana-search-bar-component></ana-search-bar-component>
+    <div class="right-items menu-items">
+        <div class="languages">
+            <span *ngFor="let lang of languages" class="lang-item" [ngClass]="{ 'selected': selectedLanguage === lang}" (click)="changeLanguage(lang)">
+                {{ lang }}
+            </span>
+        </div>
+    </div>
+</div>

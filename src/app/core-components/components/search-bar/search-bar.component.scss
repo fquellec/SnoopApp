@@ -1,0 +1,39 @@
+.search-bar-component {
+    padding: 0 50px;
+    display: flex;
+    align-items: center;
+
+    input {
+        background-color: #485766;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        color: white;
+        height: 50px;
+        padding: 5px 40px;
+        width: 100%;
+    }
+
+    textarea:focus, input:focus {
+        outline: none;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: #a5abb1;
+        opacity: 1; /* Firefox */
+      }
+      
+      :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: #a5abb1;
+      }
+      
+      ::-ms-input-placeholder { /* Microsoft Edge */
+        color: #a5abb1;
+      }
+
+    fa-icon {
+        font-size: 16px;
+        left: 25px;
+        position: relative;
+    }
+}
