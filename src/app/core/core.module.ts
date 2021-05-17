@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
-import { NgModule } from "@angular/core";
+import { NgModule } from '@angular/core';
 import { TopMenuComponent } from './components/top-menu/top-menu.component';
 import { CommonModule } from '@angular/common';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';

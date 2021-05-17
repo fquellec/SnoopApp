@@ -8,7 +8,7 @@ import { GraphModel } from '../../models/graph.model';
     styleUrls: ['./bars.component.scss']
 })
 export class BarsComponent extends GraphModel {
-    @Input() graphId: number = 0;
+    @Input() graphId = 0;
     @Input() public data: any[] = [];
 
     constructor() {
@@ -28,12 +28,12 @@ export class BarsComponent extends GraphModel {
             .padding(0.2);
 
         // Draw the X-axis on the DOM
-        this.svg.append("g")
-            .attr("transform", "translate(0," + this.height + ")")
+        this.svg.append('g')
+            .attr('transform', 'translate(0,' + this.height + ')')
             .call(d3.axisBottom(x))
-            .selectAll("text")
-            .attr("transform", "translate(-10,0)rotate(-45)")
-            .style("text-anchor", "end");
+            .selectAll('text')
+            .attr('transform', 'translate(-10,0)rotate(-45)')
+            .style('text-anchor', 'end');
 
         // Create the Y-axis band scale
         const y = d3.scaleLinear()
@@ -41,19 +41,19 @@ export class BarsComponent extends GraphModel {
             .range([this.height, 0]);
 
         // Draw the Y-axis on the DOM
-        this.svg.append("g")
+        this.svg.append('g')
             .call(d3.axisLeft(y));
 
         // Create and fill the bars
-        this.svg.selectAll("bars")
+        this.svg.selectAll('bars')
             .data(data)
             .enter()
-            .append("rect")
-            .attr("x", (d: any) => x(d.Framework))
-            .attr("y", (d: any) => y(d.Stars))
-            .attr("width", x.bandwidth())
-            .attr("height", (d: any) => this.height - y(d.Stars))
-            .attr("fill", "#d04a35");
+            .append('rect')
+            .attr('x', (d: any) => x(d.Framework))
+            .attr('y', (d: any) => y(d.Stars))
+            .attr('width', x.bandwidth())
+            .attr('height', (d: any) => this.height - y(d.Stars))
+            .attr('fill', '#00cec9');
     }
 
 }

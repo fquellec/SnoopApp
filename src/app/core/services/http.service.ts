@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class HttpService {
-    private serviceUrl: string = '';
+    private serviceUrl = '';
 
     constructor(private http: HttpClient) { }
 
@@ -19,12 +19,12 @@ export class HttpService {
     }
 
     /**
-   * Post a resource
-   * @template T Resource type
-   * @param url Resource's url
-   * @param body Resource to post
-   * @returns post HTTP Result
-   */
+     * Post a resource
+     * @template T Resource type
+     * @param url Resource's url
+     * @param body Resource to post
+     * @returns post HTTP Result
+     */
     public post<T>(url: string, body: any): Observable<T> {
         return this.http.post<T>(url, body);
     }
@@ -41,11 +41,11 @@ export class HttpService {
     }
 
     /**
-   * Delete a resource 
-   * @template T Resource type
-   * @param url Resource's url
-   * @returns delete Resource deleted
-   */
+     * Delete a resource
+     * @template T Resource type
+     * @param url Resource's url
+     * @returns delete Resource deleted
+     */
     public delete<T>(url: string): Observable<T> {
         return this.http.delete<T>(url);
     }
