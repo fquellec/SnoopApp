@@ -1,5 +1,13 @@
 <ana-page-component>
-    <ana-card>
-        <ana-bars></ana-bars>
-    </ana-card>
+    <div class="cards">
+        <ana-card>
+            <ana-bars [graphId]="0" [data]="sampleData"></ana-bars>
+        </ana-card>
+        <ana-card>
+            <ana-gauge [graphId]="1" [data]="sampleData"></ana-gauge>
+        </ana-card>
+        <ana-card>
+            <ana-bars [graphId]="2" [data]="sampleData"></ana-bars>
+        </ana-card>
+    </div>
 </ana-page-component>

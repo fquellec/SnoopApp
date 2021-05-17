@@ -28,4 +28,4 @@ import { CardComponent } from './components/card/card.component';
         CardComponent
     ]
 })
-export class CoreComponentsModule { }
+export class CoreModule { }
