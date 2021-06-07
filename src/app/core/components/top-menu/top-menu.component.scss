@@ -16,12 +16,13 @@
 
     h1 {
         cursor: pointer;
+        font-size: 32px;
+        font-weight: 500;
         margin: 0;
-        width: 200px;
     }
 
-    .left-items {
-        width: 200px;
+    #menuButton {
+        cursor: pointer;
     }
 
     .right-items {

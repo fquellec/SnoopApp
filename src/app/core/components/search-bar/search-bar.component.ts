@@ -15,7 +15,7 @@ export class SearchBarComponent implements AfterViewInit {
     @ViewChild('searchInput') searchInput!: ElementRef;
     public searchValue = '';
     public searchIcon = faSearch;
-    public inputPlaceholder = 'Search for newspapers (e.g. Le Monde, Le Figaro)';
+    public inputPlaceholder = 'Enter the name of a newspaper (e.g. Le Monde, Le Figaro)';
     public newspaperOptions = NEWSPAPER_LIST;
 
     constructor(private routingService: RoutingService) { }

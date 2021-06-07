@@ -2,19 +2,25 @@
     padding: 0 50px;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 8px grey;
+    //box-shadow: 0 0 8px grey;
     border-radius: 5px;
 
     .search-form {
         padding-top: 10px;
+        height: 60px;
         width: 100%;
+    }
+    
+    .mat-form-field-label {
+        font-size: 16px !important;
+    }
+
+    .search-icon {
+        margin: 18.825px 10px 0 0;
     }
 
     input {
-        border: none;
-        border-radius: 5px;
         font-size: 16px;
-        height: 35px;
     }
 
     textarea:focus, input:focus {
@@ -23,6 +29,7 @@
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
         color: #a5abb1;
+        font-size: 16px;
         opacity: 1; /* Firefox */
       }
       

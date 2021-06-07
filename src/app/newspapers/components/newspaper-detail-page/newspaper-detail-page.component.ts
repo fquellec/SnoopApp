@@ -1,5 +1,6 @@
 import { Newspaper } from './../../../core/models/newspaper.model';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'ana-newspaper-detail-page',
@@ -8,11 +9,17 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NewspaperDetailPageComponent implements OnInit {
 
-    @Input() newspaper?: Newspaper = undefined;
+    public newspaper?: Newspaper = undefined;
+    public newspaperName = '';
 
-    constructor() { }
+    constructor(private activatedRoute: ActivatedRoute) { }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
+        this.activatedRoute.params.subscribe({
+            next: params => {
+                this.newspaperName = params.id;
+            }
+        });
     }
 
 }
