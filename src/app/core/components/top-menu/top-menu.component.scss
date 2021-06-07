@@ -4,8 +4,7 @@
     border-bottom: 1px solid white;
     color: white;
     display: grid;
-    grid-template-columns: max-content auto max-content;
-    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);
     font-weight: 800;
     height: 50px;
     padding: 10px 50px;
@@ -19,13 +18,22 @@
         font-size: 32px;
         font-weight: 500;
         margin: 0;
+        justify-self: center;
     }
 
     #menuButton {
         cursor: pointer;
     }
 
+    #searchButton {
+        margin-left: 20px;
+        cursor: pointer;
+    }
+
     .right-items {
+        display: flex;
+        justify-self: flex-end;
+
         .languages {
             display: grid;
             grid-template-columns: repeat(2, max-content);
@@ -42,9 +50,5 @@
                 }
             }
         }
-    }
-
-    ana-search-bar-component {
-        width: 100%;
     }
   }

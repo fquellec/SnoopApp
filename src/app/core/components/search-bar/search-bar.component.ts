@@ -1,6 +1,6 @@
 import { RoutingService } from './../../services/routing.service';
 import { NEWSPAPER_LIST } from './../../constants/newspaperslist';
-import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { map, debounceTime } from 'rxjs/operators';
 })
 export class SearchBarComponent implements AfterViewInit {
 
+    @Input() small = false;
     @ViewChild('searchInput') searchInput!: ElementRef;
     public searchValue = '';
     public searchIcon = faSearch;

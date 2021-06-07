@@ -10,6 +10,7 @@ export class TopMenuComponent implements OnInit {
 
     public languages = ['en', 'fr'];
     public selectedLanguage = 'en';
+    public searchOpened = false;
 
     constructor(private routingService: RoutingService) { }
 
@@ -22,6 +23,10 @@ export class TopMenuComponent implements OnInit {
 
     public navigateToHomePage(): void {
         this.routingService.navigateToHomePage();
+    }
+
+    public toggleSearch(): void {
+        this.searchOpened = !this.searchOpened;
     }
 
 }
