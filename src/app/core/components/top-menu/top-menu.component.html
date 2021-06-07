@@ -2,7 +2,7 @@
     <div class="left-items menu-items">
         <mat-icon id="menuButton">menu</mat-icon>
     </div>
-    <h1 (click)="navigateToHomePage()">Snoop</h1>
+    <img class="logo" src="assets/logo.png" alt="Snoop" (click)="navigateToHomePage()">
     <div class="right-items menu-items">
         <div class="languages">
             <span *ngFor="let lang of languages" class="lang-item" [ngClass]="{ 'selected': selectedLanguage === lang}" (click)="changeLanguage(lang)">
