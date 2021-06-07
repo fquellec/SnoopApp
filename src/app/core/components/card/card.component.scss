@@ -9,4 +9,9 @@
     .card-header {
         border-bottom: 1px solid white;
     }
+
+    &.bubble {
+        border-radius: 100px;
+        text-align: center;
+    }
 }

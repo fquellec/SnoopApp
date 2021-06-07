@@ -1,0 +1,48 @@
+.dashboard {
+    display: grid;
+    align-items: center;
+    border-radius: 100%;
+    grid-template-columns: 2fr 3fr 2fr;
+    grid-template-rows: 2fr 3fr 2fr;
+    grid-gap: 5px;
+    row-gap: 5px;
+    justify-items: center;
+    width: 60%;
+
+    .top-info, .bottom-info {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 5px;
+    }
+
+    .left-info, .right-info {
+        display: grid;
+        row-gap: 5px;
+    }
+
+    .left-info {
+        margin-right: 16px;
+    }
+
+    .right-info {
+        margin-left: 16px;
+    }
+
+    .corner-info {
+        &.left-corner {
+            justify-self: end;
+        }
+
+        &.right-corner {
+            justify-self: start;
+        }
+
+        &.top-corner {
+            align-self: flex-end;
+        }
+
+        &.bottom-corner {
+            align-self: flex-start;
+        }
+    }
+}

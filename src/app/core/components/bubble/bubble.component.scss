@@ -1,0 +1,39 @@
+.bubble {
+    --bubbleSize: 120px;
+    --littleBubbleRatio: 0.52;
+    --bigBubbleRatio: 2;
+
+    background-color: rgb(200, 234, 248);
+    padding: 20px;
+    text-align: center;
+    display: grid;
+    align-items: center;
+    height: var(--bubbleSize);
+    width: var(--bubbleSize);
+    border-radius: 100%;
+    transition: all .15s ease-in-out;
+    
+    &:not(.principal):hover { 
+        transform: scale(1.15);
+        cursor: pointer;
+    }
+    
+    &.principal {
+        background-color: coral;
+        color: white;
+        border-radius: 100%;
+        height: calc(var(--bubbleSize) * var(--bigBubbleRatio));
+        width: calc(var(--bubbleSize) * var(--bigBubbleRatio));
+    }
+    
+    &.corner {
+        background-color: rgb(162, 224, 162);
+        height: calc(var(--bubbleSize) * var(--littleBubbleRatio));
+        width: calc(var(--bubbleSize) * var(--littleBubbleRatio));
+    }
+
+    h1 {
+        border-bottom: 0.6px solid white;
+        font-weight: 800;
+    }
+}
