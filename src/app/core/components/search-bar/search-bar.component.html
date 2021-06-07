@@ -1,4 +1,8 @@
 <div class="search-bar-component">
-    <fa-icon [icon]="searchIcon"></fa-icon>
-    <input ([ngModel])="searchInput" type="text" placeholder="Search articles..." icon="search-icon">
+    <mat-form-field class="search-form">
+        <input type="text" #searchInput [placeholder]='inputPlaceholder' matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let newspaper of newspaperOptions" [value]="newspaper" (click)="navigateToNewspaper(newspaper)">{{newspaper}}</mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
 </div>
