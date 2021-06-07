@@ -1,4 +1,21 @@
 .content {
     display: grid;
     row-gap: 75px;
+
+    justify-content: center;
+
+    .description {
+        font-weight: 500;
+        font-size: 20px;
+    }
+
+    .indication {
+        text-align: center;
+    }
+
+    .snoop {
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 22px;
+    }
 }

@@ -9,5 +9,7 @@
                 {{ lang }}
             </span>
         </div>
+        <ana-search-bar-component *ngIf="searchOpened" [small]="true"></ana-search-bar-component>
+        <!-- <mat-icon id='searchButton' *ngIf="!searchOpened" (click)="toggleSearch()">search</mat-icon> -->
     </div>
 </div>

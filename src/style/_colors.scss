@@ -1,6 +1,13 @@
-$blue-sherpa: #0fb9b1;// #013243;
+$primary: #0fb9b1;
+$secondary: #F7AD5E;
+$tertiary: #013243;
+$background: white;
 $blue-sherpa-light: rgba(1, 50, 67, 0.6);
+
 :root {
-    --blue-sherpa: #{$blue-sherpa};
+    --primary: #{$primary};
+    --secondary: #{$secondary};
+    --tertiary: #{$tertiary};
+    --background: #{$background};
     --blue-sherpa-light: #{$blue-sherpa-light};
 }
