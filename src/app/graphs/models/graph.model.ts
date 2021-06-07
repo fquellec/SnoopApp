@@ -4,13 +4,17 @@ import { Directive, AfterViewInit } from '@angular/core';
 @Directive()
 // tslint:disable-next-line: directive-class-suffix
 export abstract class GraphModel implements AfterViewInit {
-    public graphId = 0;
     public data: any[] = [];
+
+    public graphId = 0;
     protected graphType = '';
-    protected svg: any;
+
+    // style attributes
     protected margin = 50;
     protected width = 750 - (this.margin * 2);
     protected height = 400 - (this.margin * 2);
+
+    protected svg: any;
 
     constructor() { }
 
@@ -22,8 +26,8 @@ export abstract class GraphModel implements AfterViewInit {
     private createSvg(): void {
         this.svg = d3.select(`figure#${this.graphType}${this.graphId}`)
             .append('svg')
-            .attr('width', this.width + (this.margin * 2))
-            .attr('height', this.height + (this.margin * 2))
+            .attr('view-box', `0 0 ${this.width} ${this.height}`)
+            //.attr('height', this.height + (this.margin * 2))
             .append('g')
             .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
     }

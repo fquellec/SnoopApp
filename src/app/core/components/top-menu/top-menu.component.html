@@ -1,8 +1,8 @@
 <div class="top-menu" role="banner">
     <div class="left-items menu-items">
-        <h1>Snoop</h1>
+        <span>Menu</span>
     </div>
-    <ana-search-bar-component></ana-search-bar-component>
+    <h1>Snoop</h1>
     <div class="right-items menu-items">
         <div class="languages">
             <span *ngFor="let lang of languages" class="lang-item" [ngClass]="{ 'selected': selectedLanguage === lang}" (click)="changeLanguage(lang)">

@@ -1,3 +1,4 @@
+import { SnoopApiService } from './services/snoop-api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { NgModule } from '@angular/core';
@@ -25,7 +26,11 @@ import { CardComponent } from './components/card/card.component';
         SideMenuComponent,
         TopMenuComponent,
         PageComponent,
-        CardComponent
+        CardComponent,
+        SearchBarComponent,
+    ],
+    providers: [
+        SnoopApiService,
     ]
 })
 export class CoreModule { }
