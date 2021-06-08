@@ -1,7 +1,8 @@
-<ana-page-component>
-    <div class="content">
-        <div class="dashboard-container">
-            <ana-newspaper-dashboard [newspaperName]="newspaperName"></ana-newspaper-dashboard>
-        </div>
+<div class="page-container">
+    <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone()" *ngIf="displayAnalysis">
+        <ana-newspaper-analysis [info]="info[analysis]" (hasClosedAnalysis)="closeAnalysis()"></ana-newspaper-analysis>
     </div>
-</ana-page-component>
+    <div class="dashboard-container" [@dashboardAnimation] (@dashboardAnimation.done)="onDashboardAnimationDone()" *ngIf="displayDashboard">
+        <ana-newspaper-dashboard [newspaperName]="newspaperName" [info]="info" [bubbleDisplay]="analysis === undefined" (hasOpenedAnalysis)="openAnalysis($event)"></ana-newspaper-dashboard>
+    </div>
+</div>

@@ -9,6 +9,7 @@ export class BubbleComponent {
 
     @Input() title = '';
     @Input() info = '';
+    @Input() bubble = true;
     @Input() principal = false;
     @Input() corner = false;
 }

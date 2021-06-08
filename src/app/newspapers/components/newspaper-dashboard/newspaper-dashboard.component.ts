@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'ana-newspaper-dashboard',
@@ -6,13 +6,18 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
     styleUrls: ['./newspaper-dashboard.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class NewspaperDashboardComponent implements OnInit {
+export class NewspaperDashboardComponent {
 
+    @Input() bubbleDisplay = true;
+    @Output() hasOpenedAnalysis = new EventEmitter();
     @Input() newspaperName = '';
+    @Input() info = [{ title: '', content: '' }];
+    private openedAnalysis?: any;
 
-    constructor() { }
-
-    ngOnInit(): void {
+    public openAnalysis(index: number): void {
+        this.openedAnalysis = this.openedAnalysis === index ? undefined : index;
+        this.bubbleDisplay = !this.bubbleDisplay;
+        this.hasOpenedAnalysis.emit(index);
     }
 
 }
