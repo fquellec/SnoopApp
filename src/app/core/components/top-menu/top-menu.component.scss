@@ -1,12 +1,11 @@
 .top-menu {
     align-items: center;
-    background-color: var(--primary);
-    border-bottom: 1px solid white;
+    background: linear-gradient(var(--background), 30%, var(--primary));
     color: white;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     font-weight: 800;
-    height: 50px;
+    height: 70px;
     padding: 10px 50px;
     position: fixed;
     left: 0;
@@ -19,6 +18,7 @@
         font-weight: 500;
         margin: 0;
         justify-self: center;
+        width: 130px;
     }
 
     #menuButton {
@@ -41,10 +41,9 @@
 
             .lang-item {
                 cursor: pointer;
-                font-weight: 600;
+                font-weight: 500;
 
                 &.selected {
-                    border-bottom: 1px solid white;
                     cursor: default;
                     font-weight: 800;
                 }

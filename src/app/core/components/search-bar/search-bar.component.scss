@@ -30,7 +30,12 @@
     }
 
     .search-icon {
+        color: var(--tertiary);
         margin: 18.825px 10px 0 0;
+    }
+
+    mat-label {
+        color: var(--tertiary);
     }
 
     input {
@@ -54,10 +59,4 @@
       ::-ms-input-placeholder { /* Microsoft Edge */
         color: #a5abb1;
       }
-
-    fa-icon {
-        font-size: 16px;
-        left: 25px;
-        position: relative;
-    }
 }

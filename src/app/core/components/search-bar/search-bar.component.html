@@ -1,6 +1,6 @@
 <div class="search-bar-component">
     <mat-icon class="search-icon" matPrefix>search</mat-icon>
-    <mat-form-field class="search-form" [ngClass]="{'small': small}" [appearance]="small ? 'standard' : 'outline'" [floatLabel]="'always'">
+    <mat-form-field class="search-form" [ngClass]="{'small': small}" appearance='standard' [floatLabel]="'always'">
         <mat-label *ngIf="!small">Search for newspapers</mat-label>
         <input type="text" #searchInput [placeholder]='inputPlaceholder' matInput [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">

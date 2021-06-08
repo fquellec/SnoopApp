@@ -16,7 +16,6 @@ import { SearchBarComponent } from './components/search-bar/search-bar.component
 import { PageComponent } from './components/page/page.component';
 import { BubbleComponent } from './components/bubble/bubble.component';
 
-
 @NgModule({
     imports: [
         BrowserModule,
