@@ -1,6 +1,6 @@
 <div class="analysis-container">
     <mat-icon (click)="onClose()">close</mat-icon>
-    <ana-card [title]="info.title">
-        <ana-bars [graphId]="0" [data]="info.graphs[0]"></ana-bars>
+    <ana-card [title]="analysis.title">
+        <ana-bars *ngFor="let graph of analysis.graphs ; let i = index" [graphId]="getGraphId(i)" [data]="graph"></ana-bars>
     </ana-card>
 </div>

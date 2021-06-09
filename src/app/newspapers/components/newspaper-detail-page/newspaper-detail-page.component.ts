@@ -16,7 +16,7 @@ export class NewspaperDetailPageComponent implements OnInit {
 
     public newspaper!: Newspaper;
     public newspaperName = '';
-    public analysis?: any;
+    public analysis?: Analysis;
     public displayDashboard = true;
     public displayAnalysis = false;
     public info: Analysis[] = [];
@@ -38,7 +38,7 @@ export class NewspaperDetailPageComponent implements OnInit {
     }
 
     public openAnalysis(index: number): void {
-        this.analysis = index;
+        this.analysis = this.newspaper.analyses[index];
         //this.displayDashboard = false;
         this.displayAnalysis = true;
     }

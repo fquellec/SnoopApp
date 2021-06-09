@@ -4,17 +4,30 @@
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
     transition: all .15s ease-in-out;
 
-    &:not(.principal):hover { 
-        transform: scaleX(1.05);
-        cursor: pointer;
-    }
+    &.bubble {
+        padding: 18px 40px;
 
-    &.principal {
-        border-color: coral;
-        border-radius: 100%;
-        height: calc(var(--bubbleSize) * var(--bigBubbleRatio));
-        width: calc(var(--bubbleSize) * var(--bigBubbleRatio));
+        /* &:not(.corner) {
+            border-color: var(--tertiary);
+
+            .bubble-content .info .stat{
+                color: var(--tertiary);
+            }
+        } */
+
     }
+    
+    &.selected {
+        border-color: var(--tertiary);
+        
+        .bubble-content .info .stat{
+            color: var(--tertiary);
+        }
+        /* h2 {
+            color: red;
+        } */
+    }
+    
 
     .bubble-content {
         display: grid;
@@ -70,7 +83,7 @@
         }
     }
 
-    &.corner {
+    &.corner:not(.bubble) {
         border-color: var(--tertiary);//rgb(162, 224, 162);
         
         .bubble-content .info .stat{

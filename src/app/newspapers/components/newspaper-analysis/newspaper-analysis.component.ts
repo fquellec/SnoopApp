@@ -8,10 +8,14 @@ import { Analysis } from './../../../core/models/analysis.model';
 })
 export class NewspaperAnalysisComponent {
 
-    @Input() info!: Analysis;
+    @Input() analysis!: Analysis;
     @Output() hasClosedAnalysis = new EventEmitter();
 
     public onClose(): void {
         this.hasClosedAnalysis.emit();
+    }
+
+    public getGraphId(index: number): string {
+        return this.analysis.title.replace(' ', '-') + index;
     }
 }

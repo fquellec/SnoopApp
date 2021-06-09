@@ -1,6 +1,6 @@
 <div class="page-container" [ngClass]="{'small': displayAnalysis}">
     <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone()" *ngIf="displayAnalysis">
-        <ana-newspaper-analysis [info]="info[analysis]" (hasClosedAnalysis)="closeAnalysis()"></ana-newspaper-analysis>
+        <ana-newspaper-analysis *ngIf="analysis" [analysis]="analysis" (hasClosedAnalysis)="closeAnalysis()"></ana-newspaper-analysis>
     </div>
     <div class="dashboard-container" [@dashboardAnimation] (@dashboardAnimation.done)="onDashboardAnimationDone()">
         <ana-newspaper-dashboard [newspaper]="newspaper" [bubbleDisplay]="!displayAnalysis" (hasOpenedAnalysis)="openAnalysis($event)">

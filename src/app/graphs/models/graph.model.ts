@@ -6,7 +6,7 @@ import { Directive, AfterViewInit } from '@angular/core';
 export abstract class GraphModel implements AfterViewInit {
     public data: any[] = [];
 
-    public graphId = 0;
+    public graphId = '0';
     protected graphType = '';
 
     // style attributes

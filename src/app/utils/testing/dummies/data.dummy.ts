@@ -22,7 +22,7 @@ export const dummyTrends2 = [
 export const dummyTrendsResponse = of(dummyTrends);
 
 export const dummyAnalyses = [
-    new Analysis('Topics', new StatInfo('Health', '47%'), [dummyTrends]),
+    new Analysis('Topics', new StatInfo('Health', '47%'), [dummyTrends2]),
     // new Analysis('NA', new StatInfo('info', 'top'), []),
     new Analysis('Gender tracker', new StatInfo('Men', '78%'), [dummyTrends]),
     new Analysis('Sentiment', new StatInfo('Positive', '65%'), [dummyTrends]),

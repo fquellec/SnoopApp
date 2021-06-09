@@ -1,7 +1,11 @@
 .analysis-container {
-    padding: 50px;
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-gap: 15px;
+    padding: 0 20px;
 
     mat-icon {
         cursor: pointer;
+        padding: 25px 0;
     }
 }

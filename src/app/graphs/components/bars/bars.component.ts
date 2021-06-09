@@ -8,7 +8,7 @@ import { GraphModel } from '../../models/graph.model';
     styleUrls: ['./bars.component.scss']
 })
 export class BarsComponent extends GraphModel {
-    @Input() graphId = 0;
+    @Input() graphId = '0';
     @Input() public data: any[] = [];
 
     constructor() {

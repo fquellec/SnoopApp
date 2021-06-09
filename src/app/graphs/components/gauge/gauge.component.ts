@@ -9,7 +9,7 @@ import { GraphModel } from '../../models/graph.model';
     styleUrls: ['./gauge.component.scss']
 })
 export class GaugeComponent extends GraphModel {
-    @Input() public graphId = 0;
+    @Input() public graphId = '0';
     @Input() public data: any[] = [];
 
     constructor() {
