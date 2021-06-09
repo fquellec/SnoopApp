@@ -1,5 +1,5 @@
-import { dummyTrends } from './../../../utils/testing/dummies/data.dummy';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Analysis } from './../../../core/models/analysis.model';
 
 @Component({
     selector: 'ana-newspaper-analysis',
@@ -8,9 +8,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 })
 export class NewspaperAnalysisComponent {
 
-    @Input() info = { title: '', content: '' };
+    @Input() info!: Analysis;
     @Output() hasClosedAnalysis = new EventEmitter();
-    public data = dummyTrends;
 
     public onClose(): void {
         this.hasClosedAnalysis.emit();

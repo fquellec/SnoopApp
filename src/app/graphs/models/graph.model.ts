@@ -27,7 +27,8 @@ export abstract class GraphModel implements AfterViewInit {
         this.svg = d3.select(`figure#${this.graphType}${this.graphId}`)
             .append('svg')
             .attr('view-box', `0 0 ${this.width} ${this.height}`)
-            //.attr('height', this.height + (this.margin * 2))
+            .attr('width', this.width + (this.margin * 2))
+            .attr('height', this.height + (this.margin * 2))
             .append('g')
             .attr('transform', 'translate(' + this.margin + ',' + this.margin + ')');
     }

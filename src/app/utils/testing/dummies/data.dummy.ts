@@ -1,4 +1,6 @@
+import { Newspaper } from './../../../core/models/newspaper.model';
 import { of, throwError } from 'rxjs';
+import { Analysis } from 'src/app/core/models/analysis.model';
 
 // Dummy trends
 export const dummyTrends = [
@@ -8,21 +10,29 @@ export const dummyTrends = [
     { Framework: 'Backbone', Stars: '27647', Released: '2010' },
     { Framework: 'Ember', Stars: '21471', Released: '2011' },
 ];
+
+export const dummyTrends2 = [
+    { Framework: 'Salut', Stars: '116443', Released: '2012' },
+    { Framework: 'Ca', Stars: '50793', Released: '2013' },
+    { Framework: 'Va', Stars: '62342', Released: '2019' },
+    { Framework: 'Sale', Stars: '37647', Released: '2010' },
+    { Framework: 'Pute', Stars: '1471', Released: '2011' },
+];
 export const dummyTrendsResponse = of(dummyTrends);
 
-// Dummy newspaper data
-export const dummyNewspaperInfo = [
-    { title: 'Info 1', content: 'info c1' },
-    { title: 'Info 2', content: 'info top' },
-    { title: 'Info 3', content: 'info c2' },
-    { title: 'Info 4', content: 'info left' },
-    { title: 'Dummy newspaper', content: 'general info' },
-    { title: 'Info 5', content: 'info right' },
-    { title: 'Info 6', content: 'info c3' },
-    { title: 'Info 7', content: 'info bottom' },
-    { title: 'Info 8', content: 'info c4' },
+export const dummyAnalyses = [
+    new Analysis('Topics', ' 47% Health', [dummyTrends]),
+    new Analysis('NA', 'top', []),
+    new Analysis('Gender tracker', '78% men', [dummyTrends]),
+    new Analysis('Sentiment', '65% Positive', [dummyTrends]),
+    new Analysis('NA', 'info bottom', []),
+    new Analysis('Keywords', '"pute"', [dummyTrends]),
+    new Analysis('Sources', '147 sources', [dummyTrends]),
+    new Analysis('Diversity', '0.58% information', [dummyTrends]),
 ];
 
-export const dummyNewspaperInfoResponse = of(dummyNewspaperInfo);
+export const dummyNewspaper = (newspaperName: string) => new Newspaper(newspaperName, '13290 articles', dummyAnalyses);
+
+export const dummyNewspaperResponse = (newspaperName: string) => of(dummyNewspaper(newspaperName));
 
 export const dummyErrorResponse = throwError(new Error());

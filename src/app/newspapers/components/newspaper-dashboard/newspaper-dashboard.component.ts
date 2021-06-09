@@ -1,4 +1,5 @@
 import { Component, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { Newspaper } from './../../../core/models/newspaper.model';
 
 @Component({
     selector: 'ana-newspaper-dashboard',
@@ -10,8 +11,7 @@ export class NewspaperDashboardComponent {
 
     @Input() bubbleDisplay = true;
     @Output() hasOpenedAnalysis = new EventEmitter();
-    @Input() newspaperName = '';
-    @Input() info = [{ title: '', content: '' }];
+    @Input() newspaper!: Newspaper;
     private openedAnalysis?: any;
 
     public openAnalysis(index: number): void {

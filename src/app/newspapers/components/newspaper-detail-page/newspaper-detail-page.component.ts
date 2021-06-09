@@ -1,9 +1,10 @@
-import { newspaperDetailAnimations } from './../../animations/newspaper-dashboard.animation';
-import { NewspaperService } from './../../services/newspaper.service';
-import { Newspaper } from './../../../core/models/newspaper.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Analysis } from './../../../core/models/analysis.model';
+import { NewspaperService } from './../../services/newspaper.service';
+import { Newspaper } from './../../../core/models/newspaper.model';
+import { newspaperDetailAnimations } from './../../animations/newspaper-dashboard.animation';
 
 @Component({
     selector: 'ana-newspaper-detail-page',
@@ -13,12 +14,12 @@ import { switchMap } from 'rxjs/operators';
 })
 export class NewspaperDetailPageComponent implements OnInit {
 
-    public newspaper?: Newspaper = undefined;
+    public newspaper!: Newspaper;
     public newspaperName = '';
     public analysis?: any;
     public displayDashboard = true;
     public displayAnalysis = false;
-    public info = [];
+    public info: Analysis[] = [];
 
     constructor(private activatedRoute: ActivatedRoute, private newspaperService: NewspaperService) { }
 
@@ -29,8 +30,9 @@ export class NewspaperDetailPageComponent implements OnInit {
                 return this.newspaperService.getNewsPaperAnalysis(this.newspaperName);
             }))
             .subscribe({
-                next: info => {
-                    this.info = info;
+                next: newspaper => {
+                    this.newspaper = newspaper;
+                    this.info = newspaper.analyses;
                 }
             });
     }

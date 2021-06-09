@@ -3,6 +3,7 @@
         <ana-newspaper-analysis [info]="info[analysis]" (hasClosedAnalysis)="closeAnalysis()"></ana-newspaper-analysis>
     </div>
     <div class="dashboard-container" [@dashboardAnimation] (@dashboardAnimation.done)="onDashboardAnimationDone()" *ngIf="displayDashboard">
-        <ana-newspaper-dashboard [newspaperName]="newspaperName" [info]="info" [bubbleDisplay]="analysis === undefined" (hasOpenedAnalysis)="openAnalysis($event)"></ana-newspaper-dashboard>
+        <ana-newspaper-dashboard [newspaper]="newspaper" [bubbleDisplay]="analysis === undefined" (hasOpenedAnalysis)="openAnalysis($event)">
+        </ana-newspaper-dashboard>
     </div>
 </div>
