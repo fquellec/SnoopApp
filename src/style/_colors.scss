@@ -1,7 +1,7 @@
-$primary: rgba(2, 29, 37, 1);//#0fb9b1;
-$secondary: coral;// #F7AD5E;
+$primary: rgb(1, 29, 31);
+$secondary: coral;
 $tertiary: #0eb9b1;
-$background: rgb(1, 39, 51);
+$background: rgb(1, 49, 51);
 $blue-sherpa-light: rgba(1, 50, 67, 0.6);
 $text-light: white;
 $text-dark: #333;
@@ -15,3 +15,12 @@ $text-dark: #333;
     --text-dark: #{$text-dark};
     --blue-sherpa-light: #{$blue-sherpa-light};
 }
+
+// Color tries 
+/* 
+ primary rgba(2, 29, 37, 1) with background rgb(1, 39, 51)
+ blue sherpa rgb(1, 50, 67)
+ light coral #F7AD5E
+
+
+*/

@@ -1,3 +1,4 @@
+import { StatInfo } from './../../models/stat-info.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -8,8 +9,9 @@ import { Component, Input } from '@angular/core';
 export class BubbleComponent {
 
     @Input() title = '';
-    @Input() info = '';
-    @Input() bubble = true;
+    @Input() info!: StatInfo;
+    @Input() bubble = false;
     @Input() principal = false;
     @Input() corner = false;
+    @Input() selected = false;
 }

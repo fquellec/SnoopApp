@@ -1,10 +1,12 @@
+import { StatInfo } from './stat-info.model';
 /* tslint:disable: variable-name */
+
 export class Analysis {
     private _title: string;
-    private _description: string;
+    private _description: StatInfo;
     private _graphs: any[];
 
-    constructor(title: string, description: string, graphs: any[]) {
+    constructor(title: string, description: StatInfo, graphs: any[]) {
         this._title = title;
         this._description = description;
         this._graphs = graphs;
@@ -14,7 +16,7 @@ export class Analysis {
         return this._title;
     }
 
-    public get description(): string {
+    public get description(): StatInfo {
         return this._description;
     }
 

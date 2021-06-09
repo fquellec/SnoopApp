@@ -9,42 +9,56 @@
         grid-gap: 5px;
         row-gap: 5px;
         justify-items: center;
+
+        .general {
+            grid-column: 2;
+            grid-row: 2;
+        }
     
-        .top-info, .bottom-info {
+        .top, .bottom {
             display: grid;
             grid-auto-flow: column;
             grid-gap: 5px;
         }
     
-        .left-info, .right-info {
+        .left, .right {
             display: grid;
             row-gap: 5px;
         }
     
-        .left-info {
+        .left {
             margin-right: 16px;
+            grid-column: 1;
         }
     
-        .right-info {
+        .right {
             margin-left: 16px;
+            grid-column: 3;
         }
-    
-        .corner-info {
-            &.left-corner {
-                justify-self: end;
-            }
-    
-            &.right-corner {
-                justify-self: start;
-            }
-    
-            &.top-corner {
-                align-self: flex-end;
-            }
-    
-            &.bottom-corner {
-                align-self: flex-start;
-            }
+
+        .corner1 {
+            justify-self: end;
+            align-self: flex-end;
         }
+
+        .corner2 {
+            grid-column: 3;
+            justify-self: start;
+            align-self: flex-end;
+        }
+
+        .corner3 {
+            justify-self: end;
+            align-self: flex-start;
+        }
+
+        .corner4 {
+            grid-column: 3;
+            justify-self: start;
+            align-self: flex-start;
+        }
+    }
+
+    .selected {
     }
 }

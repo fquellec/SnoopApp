@@ -1,6 +1,7 @@
 import { Newspaper } from './../../../core/models/newspaper.model';
 import { of, throwError } from 'rxjs';
 import { Analysis } from 'src/app/core/models/analysis.model';
+import { StatInfo } from 'src/app/core/models/stat-info.model';
 
 // Dummy trends
 export const dummyTrends = [
@@ -21,17 +22,17 @@ export const dummyTrends2 = [
 export const dummyTrendsResponse = of(dummyTrends);
 
 export const dummyAnalyses = [
-    new Analysis('Topics', ' 47% Health', [dummyTrends]),
-    new Analysis('NA', 'top', []),
-    new Analysis('Gender tracker', '78% men', [dummyTrends]),
-    new Analysis('Sentiment', '65% Positive', [dummyTrends]),
-    new Analysis('NA', 'info bottom', []),
-    new Analysis('Keywords', '"pute"', [dummyTrends]),
-    new Analysis('Sources', '147 sources', [dummyTrends]),
-    new Analysis('Diversity', '0.58% information', [dummyTrends]),
+    new Analysis('Topics', new StatInfo('Health', '47%'), [dummyTrends]),
+    // new Analysis('NA', new StatInfo('info', 'top'), []),
+    new Analysis('Gender tracker', new StatInfo('Men', '78%'), [dummyTrends]),
+    new Analysis('Sentiment', new StatInfo('Positive', '65%'), [dummyTrends]),
+    // new Analysis('NA', new StatInfo('info', 'bottom'), []),
+    new Analysis('Keywords', new StatInfo('', '"pute"'), [dummyTrends]),
+    new Analysis('Sources', new StatInfo('Sources', '147'), [dummyTrends]),
+    new Analysis('Diversity', new StatInfo('Information', '0.58%'), [dummyTrends]),
 ];
 
-export const dummyNewspaper = (newspaperName: string) => new Newspaper(newspaperName, '13290 articles', dummyAnalyses);
+export const dummyNewspaper = (newspaperName: string) => new Newspaper(newspaperName, new StatInfo('articles', '13290', ['from 12.07.2018', 'to 03.03.2021']), dummyAnalyses);
 
 export const dummyNewspaperResponse = (newspaperName: string) => of(dummyNewspaper(newspaperName));
 

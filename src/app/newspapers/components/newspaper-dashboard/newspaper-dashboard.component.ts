@@ -9,14 +9,23 @@ import { Newspaper } from './../../../core/models/newspaper.model';
 })
 export class NewspaperDashboardComponent {
 
+    public classes = [
+        'corner1',
+        'corner2',
+        'left',
+        'right',
+        'corner3',
+        'corner4'
+    ];
+
     @Input() bubbleDisplay = true;
     @Output() hasOpenedAnalysis = new EventEmitter();
     @Input() newspaper!: Newspaper;
-    private openedAnalysis?: any;
+    public openedAnalysis?: any;
 
     public openAnalysis(index: number): void {
-        this.openedAnalysis = this.openedAnalysis === index ? undefined : index;
-        this.bubbleDisplay = !this.bubbleDisplay;
+        this.openedAnalysis = index;
+        this.bubbleDisplay = this.openedAnalysis === undefined;
         this.hasOpenedAnalysis.emit(index);
     }
 

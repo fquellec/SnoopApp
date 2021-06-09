@@ -1,7 +1,6 @@
 .item {
-    border: thin solid rgb(200, 234, 248);
-    border-radius: 10px;
-    padding: 20px;
+    border-top: thin solid var(--secondary);// rgb(200, 234, 248);
+    padding: 5px 40px;
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
     transition: all .15s ease-in-out;
 
@@ -17,41 +16,65 @@
         width: calc(var(--bubbleSize) * var(--bigBubbleRatio));
     }
 
-    &.corner {
-        border-color: rgb(162, 224, 162);
-    }
-
-
-    h1 {
-        border-bottom: 0.6px solid white;
-        color: coral;
-        font-weight: 800;
-    }
-
-    &.bubble {
-        --bubbleSize: 120px;
-        --littleBubbleRatio: 0.52;
-        --bigBubbleRatio: 2;
-
-        text-align: center;
+    .bubble-content {
         display: grid;
+        justify-items: center;
+        
+        .info {
+            font-size: 20px;
+            font-weight: 600;
+
+            .stat {
+                color: var(--secondary);
+                font-size: 24px;
+                font-weight: 800;
+            }
+        }
+    }
+
+    &:not(.principal):not(.selected):hover { 
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    &.principal {
+        --bubbleSize: 240px;
+
         align-items: center;
+        border-color: var(--secondary);
+        border: thin solid var(--secondary);
+        border-radius: 100%;
+        display: grid;
+        padding: 20px;
+        text-align: center;
         height: var(--bubbleSize);
         width: var(--bubbleSize);
-        border-radius: 100%;
-                
-        &.principal {
-            height: calc(var(--bubbleSize) * var(--bigBubbleRatio));
-            width: calc(var(--bubbleSize) * var(--bigBubbleRatio));
-        }
-        
-        &.corner {
-            height: calc(var(--bubbleSize) * var(--littleBubbleRatio));
-            width: calc(var(--bubbleSize) * var(--littleBubbleRatio));
+
+        h2 {
+            border-bottom: 0.6px solid white;
+            color: var(--secondary);
+            font: 800 24px/32px Roboto, "Helvetica Neue", sans-serif;
+            padding-bottom: 8px;
+            width: 100%;
         }
 
-        &:not(.principal):hover { 
-            transform: scale(1.15);
+        .info {
+            display: grid;
+            margin: 18px 0;
+            row-gap: 8px;
+        }
+
+        .bubble-content .info .stat {
+            color: var(--text-light);
+            font-size: 28px;
+        }
+    }
+
+    &.corner {
+        border-color: var(--tertiary);//rgb(162, 224, 162);
+        
+        .bubble-content .info .stat{
+            color: var(--tertiary);
         }
     }
 }

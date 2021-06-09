@@ -39,7 +39,8 @@ export class NewspaperDetailPageComponent implements OnInit {
 
     public openAnalysis(index: number): void {
         this.analysis = index;
-        this.displayDashboard = false;
+        //this.displayDashboard = false;
+        this.displayAnalysis = true;
     }
 
     public closeAnalysis(): void {

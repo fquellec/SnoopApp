@@ -1,29 +1,9 @@
 <div class="dashboard" [ngClass]="{'bubble': bubbleDisplay}">
-    <div class="corner-info left-corner top-corner">
-        <ana-bubble [title]="info[0].title" [info]="info[0].content" [bubble]="bubbleDisplay" [corner]="true" (click)="openAnalysis(0)"></ana-bubble>
-    </div>
-    <div class="top-info">
-        <ana-bubble [title]="info[1].title" [info]="info[1].content" [bubble]="bubbleDisplay" (click)="openAnalysis(1)"></ana-bubble>
-    </div>
-    <div class="corner-info right-corner top-corner">
-        <ana-bubble [title]="info[2].title" [info]="info[2].content" [bubble]="bubbleDisplay" [corner]="true" (click)="openAnalysis(2)"></ana-bubble>
-    </div>
-    <div class="left-info">
-        <ana-bubble [title]="info[3].title" [info]="info[3].content" [bubble]="bubbleDisplay" (click)="openAnalysis(3)"></ana-bubble>
+    <div *ngFor="let analysis of newspaper.analyses, let i = index" [ngClass]="classes[i]">
+        <ana-bubble [title]=" analysis.title" [info]="analysis.description" (click)="openAnalysis(i)" [corner]="classes[i].includes('corner')" [selected]="openedAnalysis === i">
+        </ana-bubble>
     </div>
     <div class="general">
-        <ana-bubble class="principal" [title]="newspaperName" [bubble]="bubbleDisplay" [info]="info[4].content" [principal]="true"></ana-bubble>
-    </div>
-    <div class="right-info">
-        <ana-bubble [title]="info[5].title" [info]="info[5].content" [bubble]="bubbleDisplay" (click)="openAnalysis(5)"></ana-bubble>
-    </div>
-    <div class="corner-info left-corner bottom-corner">
-        <ana-bubble [title]="info[6].title" [info]="info[6].content" [bubble]="bubbleDisplay" [corner]="true" (click)="openAnalysis(6)"></ana-bubble>
-    </div>
-    <div class="bottom-info">
-        <ana-bubble [title]="info[7].title" [info]="info[7].content" [bubble]="bubbleDisplay" (click)="openAnalysis(7)"></ana-bubble>
-    </div>
-    <div class="corner-info right-corner bottom-corner">
-        <ana-bubble [title]="info[8].title" [info]="info[8].content" [bubble]="bubbleDisplay" [corner]="true" (click)="openAnalysis(8)"></ana-bubble>
+        <ana-bubble *ngIf="bubbleDisplay" class="principal" [title]="newspaper.name" [info]="newspaper.description" [principal]="true" [bubble]="true"></ana-bubble>
     </div>
 </div>

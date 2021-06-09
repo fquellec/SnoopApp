@@ -1,7 +1,9 @@
-<div class="item" *ngIf="bubble || !principal" [ngClass]="{'bubble': bubble, 'principal': principal, 'corner': corner}">
+<div class="item" [ngClass]="{'principal': principal, 'corner': corner, 'selected': selected}">
     <div class="bubble-content">
-        <h1 *ngIf="principal">{{ title }}</h1>
-        <h2 *ngIf="!principal">{{ title }}</h2>
-        {{ info }}
+        <h2>{{ title }}</h2>
+        <div class="info"> <span class="stat">{{ info.statNumber }}</span> {{ info.statName }}</div>
+        <div *ngFor="let otherInfo of info.additionalInfo">
+            <div class="other-info">{{ otherInfo }}</div>
+        </div>
     </div>
 </div>
