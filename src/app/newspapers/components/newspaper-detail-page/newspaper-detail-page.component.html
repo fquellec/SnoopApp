@@ -1,11 +1,12 @@
 <div class="page-container" [ngClass]="{'small': displayAnalysis}">
     <ng-container *ngIf="!loading ; else loader">
         <ng-container *ngIf="newspaper ; else noData">
-            <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone()" *ngIf="displayAnalysis">
+            <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone($event)" *ngIf="displayedAnalysis">
                 <ana-newspaper-analysis *ngIf="displayedAnalysis" [analysis]="displayedAnalysis" (hasClosedAnalysis)="closeAnalysis()"></ana-newspaper-analysis>
             </div>
-            <div class="dashboard-container" [@dashboardAnimation] (@dashboardAnimation.done)="onDashboardAnimationDone()">
-                <ana-newspaper-dashboard [newspaper]="newspaper" [bubbleDisplay]="!displayAnalysis" (hasOpenedAnalysis)="openAnalysis($event)">
+            <div class="dashboard-container">
+                <ana-newspaper-dashboard [@dashboardAnimation]="fullDashboard ? 'full': 'small'" (@dashboardAnimation.done)="onDashboardAnimationDone($event)" [newspaper]="newspaper"
+                    [bubbleDisplay]="!displayAnalysis" (hasOpenedAnalysis)="openAnalysis($event)">
                 </ana-newspaper-dashboard>
             </div>
         </ng-container>

@@ -19,7 +19,7 @@ export class NewspaperDetailPageComponent implements OnInit {
     public newspaper!: Newspaper;
     public newspaperName = '';
     public info: Analysis[] = [];
-    public displayDashboard = true;
+    public fullDashboard = true;
     public displayAnalysis = false;
     public displayedAnalysis?: Analysis;
 
@@ -51,17 +51,22 @@ export class NewspaperDetailPageComponent implements OnInit {
 
     public closeAnalysis(): void {
         this.displayedAnalysis = undefined;
-        this.displayAnalysis = false;
+        this.fullDashboard = true;
     }
 
-    public onAnalysisAnimationDone(): void {
-        if (!this.displayAnalysis) {
-            this.displayDashboard = true;
+    public onAnalysisAnimationDone(event: any): void {
+        if (this.displayedAnalysis === undefined) {
+            this.fullDashboard = true;
+            this.displayAnalysis = false;
+        }
+
+        else {
+            this.fullDashboard = false;
         }
     }
 
-    public onDashboardAnimationDone(): void {
-        if (!this.displayDashboard) {
+    public onDashboardAnimationDone(event: any): void {
+        if (!this.fullDashboard) {
             this.displayAnalysis = true;
         }
     }

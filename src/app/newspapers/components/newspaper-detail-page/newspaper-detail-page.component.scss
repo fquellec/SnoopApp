@@ -1,10 +1,6 @@
 .page-container {
     display: grid;
-
-    .dashboard-container {
-        display: grid;
-        justify-content: center;
-    }
+    grid-auto-flow: column;
     
     &.small {
         grid-template-columns: 3fr 1fr;
@@ -12,12 +8,16 @@
         .dashboard-container {
             justify-content: unset;
         }
+    }
 
+    .dashboard-container {
+        display: grid;
+        justify-content: center;
     }
 
     .no-data-message {
         font-size: 24px;
-        font-weight: 600;   
+        font-weight: 600;
         justify-self: center;
         padding: 50px;
     }
