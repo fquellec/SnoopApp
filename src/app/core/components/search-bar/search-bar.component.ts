@@ -28,7 +28,7 @@ export class SearchBarComponent implements AfterViewInit {
         fromEvent<any>(this.searchInput.nativeElement, 'keyup')
             .pipe(
                 map((event: any) => event.target.value),
-                debounceTime(300) // Discard emitted values that take less than the specified time between output
+                debounceTime(200) // Discard emitted values that take less than the specified time between output
             )
             .subscribe((res) => {
                 this.searchChange(res);

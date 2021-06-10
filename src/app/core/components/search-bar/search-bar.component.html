@@ -3,12 +3,16 @@
     <mat-form-field class="search-form" [ngClass]="{'small': small}" appearance='standard' [floatLabel]="'always'">
         <mat-label *ngIf="!small">Search for newspapers</mat-label>
         <input type="text" #searchInput [placeholder]='inputPlaceholder' matInput [matAutocomplete]="auto">
-        <mat-autocomplete #auto="matAutocomplete">
+        <mat-autocomplete id="options-panel" #auto="matAutocomplete">
             <mat-option *ngIf="loading">
                 <ngx-spinner class="spinner" [showSpinner]="loading" [fullScreen]="false" type="ball-beat" color="#012729" bdColor="none" size="small"></ngx-spinner>
             </mat-option>
-            <mat-option *ngIf="!loading && !getFilteredOptions()?.length">No results</mat-option>
-            <mat-option *ngFor="let option of getFilteredOptions()" [value]="option.id" (click)="navigateToNewspaper(option.id)">{{ option.title }}</mat-option>
+            <mat-option style="color: white; font-weight: 400;" *ngIf="!loading && !getFilteredOptions()?.length">No results</mat-option>
+            <ng-container *ngIf="searchValue">
+                <mat-option class="news-option" style="color: white; font-weight: 300;" *ngFor="let option of getFilteredOptions()" [value]="option.id" (click)="navigateToNewspaper(option.id)">
+                    {{ option.title }}
+                </mat-option>
+            </ng-container>
         </mat-autocomplete>
     </mat-form-field>
 </div>
