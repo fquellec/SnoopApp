@@ -1,25 +1,25 @@
 /* tslint:disable: variable-name */
 
 export class StatInfo {
-    private _statName: string;
-    private _statNumber: string;
-    private _additionalInfo?: string[];
+    private stat_name: string;
+    private stat_number: string;
+    private additional_info?: string[];
 
     constructor(statName: string, statNumber: string, additionalInfo?: string[]) {
-        this._statName = statName;
-        this._statNumber = statNumber;
-        this._additionalInfo = additionalInfo;
+        this.stat_name = statName;
+        this.stat_number = statNumber;
+        this.additional_info = additionalInfo;
     }
 
     public get statName(): string {
-        return this._statName;
+        return this.stat_name;
     }
 
     public get statNumber(): string {
-        return this._statNumber;
+        return this.stat_number;
     }
 
     public get additionalInfo(): string[] {
-        return this._additionalInfo || [];
+        return this.additional_info || [];
     }
 }

@@ -1,31 +1,25 @@
 .item {
-    border-top: thin solid var(--secondary);// rgb(200, 234, 248);
+    border-top: thin solid var(--secondary);
     padding: 5px 40px;
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
     transition: all .15s ease-in-out;
 
     &.bubble {
         padding: 18px 40px;
+        border-color: var(--tertiary);
 
-        /* &:not(.corner) {
-            border-color: var(--tertiary);
-
-            .bubble-content .info .stat{
-                color: var(--tertiary);
-            }
-        } */
+        .bubble-content .info .stat{
+            color: var(--tertiary);
+        }
 
     }
     
     &.selected {
-        border-color: var(--tertiary);
-        
+        border-color: var(--secondary);
+
         .bubble-content .info .stat{
-            color: var(--tertiary);
+            color: var(--secondary);
         }
-        /* h2 {
-            color: red;
-        } */
     }
     
 
@@ -78,13 +72,13 @@
         }
 
         .bubble-content .info .stat {
-            color: var(--text-light);
-            font-size: 28px;
+            color: var(--secondary);
+            font-size: 30px;
         }
     }
 
     &.corner:not(.bubble) {
-        border-color: var(--tertiary);//rgb(162, 224, 162);
+        border-color: var(--tertiary);
         
         .bubble-content .info .stat{
             color: var(--tertiary);

@@ -1,20 +1,27 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { map, share } from 'rxjs/operators';
 import { HttpService } from './http.service';
-import { tap, switchMap } from 'rxjs/operators';
-import { dummyNewspaperResponse } from 'src/app/utils/testing/dummies/data.dummy';
+import { Newspaper } from '../models/newspaper.model';
 
 @Injectable()
 export class SnoopApiService {
-    private url = 'https://snoop-app-server.vercel.app/api/newsMedia.js';
+    private url = 'https://snoop-app-server.vercel.app/api';
+
     constructor(private httpService: HttpService) { }
 
-    public getNewspaperData(newspaperUrl: string): any {
-        return this.httpService.get(this.url).pipe(
-            switchMap(res => {
-                console.log(res)
-                return dummyNewspaperResponse;//this.httpService.get(newspaperUrl);
+    public getNewspapersList(): Observable<Newspaper[]> {
+        return this.httpService.get(`${this.url}/newslist`).pipe(
+            map((res: any) => res.newslist),
+            share()
+        );
+    }
+
+    public getNewspaperData(newspaperId: string): Observable<any> {
+        return this.httpService.get(`${this.url}/news?name=${newspaperId}`).pipe(
+            map((res: any) => {
+                return res.news[0];
             })
         );
-        //return this.httpService.get(newspaperUrl);
     }
 }

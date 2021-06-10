@@ -14,37 +14,36 @@ import { newspaperDetailAnimations } from './../../animations/newspaper-dashboar
 })
 export class NewspaperDetailPageComponent implements OnInit {
 
+    public loading = true;
     public newspaper!: Newspaper;
     public newspaperName = '';
-    public analysis?: Analysis;
+    public info: Analysis[] = [];
     public displayDashboard = true;
     public displayAnalysis = false;
-    public info: Analysis[] = [];
+    public displayedAnalysis?: Analysis;
 
     constructor(private activatedRoute: ActivatedRoute, private newspaperService: NewspaperService) { }
 
     public ngOnInit(): void {
-        this.activatedRoute.params
-            .pipe(switchMap(params => {
-                this.newspaperName = params.id;
-                return this.newspaperService.getNewsPaperAnalysis(this.newspaperName);
-            }))
-            .subscribe({
-                next: newspaper => {
-                    this.newspaper = newspaper;
-                    this.info = newspaper.analyses;
-                }
-            });
+        this.activatedRoute.params.pipe(switchMap(params => {
+            this.newspaperName = params.id;
+            return this.newspaperService.getNewsPaperAnalysis(this.newspaperName);
+        })).subscribe({
+            next: newspaper => {
+                this.loading = false;
+                this.newspaper = newspaper;
+                this.info = newspaper?.analyses;
+            }
+        });
     }
 
     public openAnalysis(index: number): void {
-        this.analysis = this.newspaper.analyses[index];
-        //this.displayDashboard = false;
+        this.displayedAnalysis = this.newspaper.analyses[index];
         this.displayAnalysis = true;
     }
 
     public closeAnalysis(): void {
-        this.analysis = undefined;
+        this.displayedAnalysis = undefined;
         this.displayAnalysis = false;
     }
 

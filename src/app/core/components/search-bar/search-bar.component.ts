@@ -1,9 +1,8 @@
-import { RoutingService } from './../../services/routing.service';
-import { NEWSPAPER_LIST } from './../../constants/newspaperslist';
 import { Component, AfterViewInit, ViewChild, ElementRef, Input } from '@angular/core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { fromEvent } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
+import { RoutingService } from './../../services/routing.service';
+import { Newspaper } from './../../models/newspaper.model';
 
 @Component({
     selector: 'ana-search-bar-component',
@@ -13,11 +12,11 @@ import { map, debounceTime } from 'rxjs/operators';
 export class SearchBarComponent implements AfterViewInit {
 
     @Input() small = false;
+    @Input() options: Newspaper[] = [];
     @ViewChild('searchInput') searchInput!: ElementRef;
+    public filteredOptions: Newspaper[] = [];
     public searchValue = '';
-    public searchIcon = faSearch;
     public inputPlaceholder = 'Enter the name of a newspaper (e.g. Le Monde, Le Figaro)';
-    public newspaperOptions = NEWSPAPER_LIST;
 
     constructor(private routingService: RoutingService) { }
 
@@ -26,7 +25,7 @@ export class SearchBarComponent implements AfterViewInit {
         fromEvent<any>(this.searchInput.nativeElement, 'keyup')
             .pipe(
                 map((event: any) => event.target.value),
-                debounceTime(400) // Discard emitted values that take less than the specified time between output
+                debounceTime(300) // Discard emitted values that take less than the specified time between output
             )
             .subscribe((res) => {
                 this.searchChange(res);
@@ -39,11 +38,19 @@ export class SearchBarComponent implements AfterViewInit {
      */
     public searchChange(searchValueChanged: any): void {
         this.searchValue = searchValueChanged;
-        this.newspaperOptions = NEWSPAPER_LIST.filter(x => x.toLowerCase().includes(this.searchValue.toLowerCase()));
+        this.filteredOptions = this.options.filter(x => x.title.toLowerCase().includes(this.searchValue.toLowerCase()));
     }
 
     public navigateToNewspaper(newspaper: string): void {
         this.routingService.navigateToNewspaper(newspaper);
     }
 
+    public getFilteredOptions(): Newspaper[] {
+        this.filteredOptions = this.options.filter(x => this.formatSearch(x.title).includes(this.formatSearch(this.searchValue)));
+        return this.filteredOptions;
+    }
+
+    public formatSearch(search: string): string {
+        return search.toLowerCase().replace(/ /g, '').trim();
+    }
 }

@@ -22,17 +22,22 @@ export const dummyTrends2 = [
 export const dummyTrendsResponse = of(dummyTrends);
 
 export const dummyAnalyses = [
-    new Analysis('Topics', new StatInfo('Health', '47%'), [dummyTrends2]),
+    new Analysis('topics', 'Topics', new StatInfo('Health', '47%'), [dummyTrends2]),
     // new Analysis('NA', new StatInfo('info', 'top'), []),
-    new Analysis('Gender tracker', new StatInfo('Men', '78%'), [dummyTrends]),
-    new Analysis('Sentiment', new StatInfo('Positive', '65%'), [dummyTrends]),
+    new Analysis('gendertracker', 'Gender tracker', new StatInfo('Men', '78%'), [dummyTrends]),
+    new Analysis('sentiment', 'Sentiment', new StatInfo('Positive', '65%'), [dummyTrends]),
     // new Analysis('NA', new StatInfo('info', 'bottom'), []),
-    new Analysis('Keywords', new StatInfo('', '"pute"'), [dummyTrends]),
-    new Analysis('Sources', new StatInfo('Sources', '147'), [dummyTrends]),
-    new Analysis('Diversity', new StatInfo('Information', '0.58%'), [dummyTrends]),
+    new Analysis('keywords', 'Keywords', new StatInfo('', '"pute"'), [dummyTrends]),
+    new Analysis('sources', 'Sources', new StatInfo('Sources', '147'), [dummyTrends]),
+    new Analysis('diversity', 'Diversity', new StatInfo('Information', '0.58%'), [dummyTrends]),
 ];
 
-export const dummyNewspaper = (newspaperName: string) => new Newspaper(newspaperName, new StatInfo('articles', '13290', ['from 12.07.2018', 'to 03.03.2021']), dummyAnalyses);
+export const dummyNewspaper = (newspaperName: string) => new Newspaper(
+    newspaperName.toLowerCase().replace('_', ''),
+    newspaperName,
+    new StatInfo('articles', '13290', ['from 12.07.2018', 'to 03.03.2021']),
+    dummyAnalyses
+);
 
 export const dummyNewspaperResponse = (newspaperName: string) => of(dummyNewspaper(newspaperName));
 

@@ -1,6 +1,11 @@
 <div class="analysis-container">
     <mat-icon (click)="onClose()">close</mat-icon>
     <ana-card [title]="analysis.title">
-        <ana-bars *ngFor="let graph of analysis.graphs ; let i = index" [graphId]="getGraphId(i)" [data]="graph"></ana-bars>
+        <ng-container *ngIf="analysis.graphs?.length ; else noData">
+            <ana-bars *ngFor="let graph of analysis.graphs ; let i = index" [graphId]="getGraphId(i)" [data]="graph"></ana-bars>
+        </ng-container>
+        <ng-template #noData>
+            <div>No data yet to expose</div>
+        </ng-template>
     </ana-card>
 </div>

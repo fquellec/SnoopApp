@@ -1,13 +1,8 @@
 .page-container {
     display: grid;
-    //display: flex;
-    //justify-content: center;
-    //grid-gap: 10px;
-    //grid-auto-flow: column;
 
     .dashboard-container {
         display: grid;
-        //align-content: center;
         justify-content: center;
     }
     
@@ -18,5 +13,12 @@
             justify-content: unset;
         }
 
+    }
+
+    .no-data-message {
+        font-size: 24px;
+        font-weight: 600;   
+        justify-self: center;
+        padding: 50px;
     }
 }

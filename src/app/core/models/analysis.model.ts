@@ -1,19 +1,15 @@
+import { BaseModel } from './base.model';
 import { StatInfo } from './stat-info.model';
-/* tslint:disable: variable-name */
 
-export class Analysis {
-    private _title: string;
+/* tslint:disable: variable-name */
+export class Analysis extends BaseModel {
     private _description: StatInfo;
     private _graphs: any[];
 
-    constructor(title: string, description: StatInfo, graphs: any[]) {
-        this._title = title;
+    constructor(id: string, title: string, description: StatInfo, graphs: any[]) {
+        super(id, title);
         this._description = description;
         this._graphs = graphs;
-    }
-
-    public get title(): string {
-        return this._title;
     }
 
     public get description(): StatInfo {
