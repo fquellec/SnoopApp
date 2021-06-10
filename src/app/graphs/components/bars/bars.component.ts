@@ -1,59 +1,54 @@
-import { Component, Input } from '@angular/core';
-import * as d3 from 'd3';
-import { BaseGraph } from '../../models/base-graph.model';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'ana-bars',
     templateUrl: './bars.component.html',
     styleUrls: ['./bars.component.scss']
 })
-export class BarsComponent extends BaseGraph {
+export class BarsComponent {
     @Input() graphId = '0';
     @Input() public data: any[] = [];
 
-    constructor() {
-        super();
-        this.graphType = 'bar';
-    }
+    constructor() {}
 
-    public draw(): void {
-        this.drawBars(this.data);
-    }
-
-    private drawBars(data: any[]): void {
-        // Create the X-axis band scale
-        const x = d3.scaleBand()
-            .range([0, this.width])
-            .domain(data.map(d => d.Framework))
-            .padding(0.2);
-
-        // Draw the X-axis on the DOM
-        this.svg.append('g')
-            .attr('transform', 'translate(0,' + this.height + ')')
-            .call(d3.axisBottom(x))
-            .selectAll('text')
-            .attr('transform', 'translate(-10,0)rotate(-45)')
-            .style('text-anchor', 'end');
-
-        // Create the Y-axis band scale
-        const y = d3.scaleLinear()
-            .domain([0, 200000])
-            .range([this.height, 0]);
-
-        // Draw the Y-axis on the DOM
-        this.svg.append('g')
-            .call(d3.axisLeft(y));
-
-        // Create and fill the bars
-        this.svg.selectAll('bars')
-            .data(data)
-            .enter()
-            .append('rect')
-            .attr('x', (d: any) => x(d.Framework))
-            .attr('y', (d: any) => y(d.Stars))
-            .attr('width', x.bandwidth())
-            .attr('height', (d: any) => this.height - y(d.Stars))
-            .attr('fill', '#00cec9');
-    }
-
+    options : any = {
+        color: ['#3398DB'],
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: 'value',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            axisTick: {
+              alignWithLabel: true
+            }
+          }
+        ],
+        yAxis: [{
+            inverse: true,
+            type: 'category'
+        }],
+        series: [{
+          name: 'Counters',
+          type: 'bar',
+          barWidth: '60%',
+          data: [10, 52, 200, 334, 390, 330, 220],
+          animationDelay: function(idx: number) {
+            return idx * 250;
+          },
+          animationEasingUpdate: "linear"
+        }],
+        animationEasing: 'ElasticOut',
+        animationDelayUpdate: 5,
+    };
 }
