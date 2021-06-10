@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 import * as d3 from 'd3';
-import { GraphModel } from '../../models/graph.model';
+import { BaseGraph } from '../../models/base-graph.model';
 
 @Component({
     selector: 'ana-bars',
     templateUrl: './bars.component.html',
     styleUrls: ['./bars.component.scss']
 })
-export class BarsComponent extends GraphModel {
+export class BarsComponent extends BaseGraph {
     @Input() graphId = '0';
     @Input() public data: any[] = [];
 

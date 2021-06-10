@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -28,6 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
         HomeModule,
         NewspapersModule,
         HttpClientModule,
+        NgxSpinnerModule,
     ],
     providers: [HttpService],
     bootstrap: [AppComponent]

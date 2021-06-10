@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import * as d3 from 'd3';
-import { GraphModel } from '../../models/graph.model';
+import { BaseGraph } from '../../models/base-graph.model';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { GraphModel } from '../../models/graph.model';
     templateUrl: './gauge.component.html',
     styleUrls: ['./gauge.component.scss']
 })
-export class GaugeComponent extends GraphModel {
+export class GaugeComponent extends BaseGraph {
     @Input() public graphId = '0';
     @Input() public data: any[] = [];
 

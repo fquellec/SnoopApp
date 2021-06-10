@@ -5,7 +5,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import { RoutingService } from './services/routing.service';
 import { SnoopApiService } from './services/snoop-api.service';
@@ -20,7 +20,7 @@ import { BubbleComponent } from './components/bubble/bubble.component';
     imports: [
         BrowserModule,
         CommonModule,
-        FontAwesomeModule,
+        NgxSpinnerModule,
         MatFormFieldModule,
         MatInputModule,
         MatAutocompleteModule,

@@ -1,3 +1,4 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
@@ -22,15 +23,21 @@ export class NewspaperDetailPageComponent implements OnInit {
     public displayAnalysis = false;
     public displayedAnalysis?: Analysis;
 
-    constructor(private activatedRoute: ActivatedRoute, private newspaperService: NewspaperService) { }
+    constructor(
+        private activatedRoute: ActivatedRoute,
+        private newspaperService: NewspaperService,
+        private loaderService: NgxSpinnerService
+    ) { }
 
     public ngOnInit(): void {
+        this.loaderService.show();
         this.activatedRoute.params.pipe(switchMap(params => {
             this.newspaperName = params.id;
             return this.newspaperService.getNewsPaperAnalysis(this.newspaperName);
         })).subscribe({
             next: newspaper => {
                 this.loading = false;
+                this.loaderService.hide();
                 this.newspaper = newspaper;
                 this.info = newspaper?.analyses;
             }

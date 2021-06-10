@@ -3,7 +3,7 @@ import { Directive, AfterViewInit } from '@angular/core';
 
 @Directive()
 // tslint:disable-next-line: directive-class-suffix
-export abstract class GraphModel implements AfterViewInit {
+export abstract class BaseGraph implements AfterViewInit {
     public data: any[] = [];
 
     public graphId = '0';

@@ -1,7 +1,7 @@
-$primary: rgb(0, 19, 20);
+$primary: #001314;
 $secondary: coral;
 $tertiary: #0eb9b1;
-$background: rgb(1, 39, 41);
+$background: #012729;
 $blue-sherpa-light: rgba(1, 50, 67, 0.6);
 $text-light: white;
 $text-dark: #333;
@@ -22,3 +22,17 @@ $text-dark: #333;
  blue sherpa rgb(1, 50, 67)
  light coral #F7AD5E
 */
+
+// palettes
+$primary-palette:(
+    50: #E9FAFC,
+    100: #DFF1F2,
+    200: #D3E4E5,
+    300: #C0D1D2,
+    400: #9CACAD,
+    500: #7B8B8C,
+    600: #546365,
+    700: #425052,
+    800: #253334,
+    900: #001314
+);

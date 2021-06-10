@@ -1,6 +1,6 @@
 .dashboard {
     display: grid;
-    padding: 50px;
+    margin-top: 88px;
     
     &.bubble {
         align-items: center;
@@ -10,6 +10,8 @@
         grid-gap: 5px;
         row-gap: 5px;
         justify-items: center;
+        padding: 50px;
+        margin-top: 0;
 
         .general {
             grid-column: 2;

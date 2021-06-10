@@ -4,7 +4,10 @@
         <mat-label *ngIf="!small">Search for newspapers</mat-label>
         <input type="text" #searchInput [placeholder]='inputPlaceholder' matInput [matAutocomplete]="auto">
         <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngIf="!getFilteredOptions()?.length">No results</mat-option>
+            <mat-option *ngIf="loading">
+                <ngx-spinner class="spinner" [showSpinner]="loading" [fullScreen]="false" type="ball-beat" color="#012729" bdColor="none" size="small"></ngx-spinner>
+            </mat-option>
+            <mat-option *ngIf="!loading && !getFilteredOptions()?.length">No results</mat-option>
             <mat-option *ngFor="let option of getFilteredOptions()" [value]="option.id" (click)="navigateToNewspaper(option.id)">{{ option.title }}</mat-option>
         </mat-autocomplete>
     </mat-form-field>

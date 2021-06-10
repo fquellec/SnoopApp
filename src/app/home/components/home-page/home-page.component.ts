@@ -9,6 +9,7 @@ import { Newspaper } from './../../../core/models/newspaper.model';
 })
 export class HomePageComponent implements OnInit {
 
+    public loading = true;
     public newspaperList: Newspaper[] = [];
     constructor(private snoopService: SnoopApiService) { }
 
@@ -16,7 +17,9 @@ export class HomePageComponent implements OnInit {
         this.snoopService.getNewspapersList().subscribe({
             next: res => {
                 this.newspaperList = res;
+                this.loading = false;
             }, error: err => {
+                this.loading = false;
                 // TODO handle error
                 console.log(err);
             }

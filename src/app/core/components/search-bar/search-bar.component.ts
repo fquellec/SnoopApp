@@ -3,6 +3,7 @@ import { fromEvent } from 'rxjs';
 import { map, debounceTime } from 'rxjs/operators';
 import { RoutingService } from './../../services/routing.service';
 import { Newspaper } from './../../models/newspaper.model';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
     selector: 'ana-search-bar-component',
@@ -13,14 +14,16 @@ export class SearchBarComponent implements AfterViewInit {
 
     @Input() small = false;
     @Input() options: Newspaper[] = [];
+    @Input() loading = true;
     @ViewChild('searchInput') searchInput!: ElementRef;
     public filteredOptions: Newspaper[] = [];
     public searchValue = '';
     public inputPlaceholder = 'Enter the name of a newspaper (e.g. Le Monde, Le Figaro)';
 
-    constructor(private routingService: RoutingService) { }
+    constructor(private routingService: RoutingService, private loaderService: NgxSpinnerService) { }
 
     public ngAfterViewInit(): void {
+        this.loaderService.show();
         // Creates an Observable that emits events of a specific type coming from the search input
         fromEvent<any>(this.searchInput.nativeElement, 'keyup')
             .pipe(
