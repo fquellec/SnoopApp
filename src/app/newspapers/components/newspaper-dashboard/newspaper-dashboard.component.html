@@ -1,7 +1,7 @@
 <div class="dashboard" [ngClass]="{'bubble': bubbleDisplay}">
     <div *ngFor="let analysis of newspaper.analyses, let i = index" [ngClass]="classes[i]">
         <ana-bubble [title]=" analysis.title" [bubble]="!bubbleDisplay" [info]="analysis.description" (click)="openAnalysis(i)" [corner]="classes[i].includes('corner')"
-            [selected]="openedAnalysis === i">
+            [selected]="!bubbleDisplay && openedAnalysis === i">
         </ana-bubble>
     </div>
     <div class="general">

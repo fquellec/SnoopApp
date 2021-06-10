@@ -40,6 +40,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
 
 .page-container {
     background: linear-gradient(var(--primary), 30%, var(--background), 80%, var(--primary));
-    height: 100%;
+    min-height: 60%;
+    max-height: 80%;
     padding: 25px;
 }
