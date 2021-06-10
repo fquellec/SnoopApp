@@ -1,4 +1,6 @@
 .item {
+    $scaleRatio: 1.05;
+
     border-top: thin solid var(--secondary);
     padding: 5px 40px;
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
@@ -16,6 +18,7 @@
     
     &.selected {
         border-color: var(--secondary);
+        transform: scale($scaleRatio);
 
         .bubble-content .info .stat{
             color: var(--secondary);
@@ -40,7 +43,7 @@
     }
 
     &:not(.principal):not(.selected):hover { 
-        transform: scale(1.05);
+        transform: scale($scaleRatio);
         cursor: pointer;
     }
 
