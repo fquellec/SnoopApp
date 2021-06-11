@@ -9,46 +9,60 @@ export class BarsComponent {
     @Input() graphId = '0';
     @Input() public data: any[] = [];
 
+    view : [number, number]= [900, 500];
+
+    single = [
+        {
+            "name": "Sport",
+            "value": 4200
+        },
+        {
+            "name": "Science",
+            "value": 4000
+        },
+        {
+          "name": "Entertainment",
+          "value": 3000
+        },
+        {
+          "name": "Politic",
+          "value": 2800
+        },
+        {
+          "name": "Health",
+          "value": 1000
+        }
+        ,
+        {
+          "name": "Economy",
+          "value": 800
+        }
+      ];
+
+    // options
+    showXAxis: boolean = true;
+    showYAxis: boolean = true;
+    gradient: boolean = false;
+    showLegend: boolean = false;
+    showGridLines: boolean = false;
+    showXAxisLabel: boolean = true;
+    yAxisLabel: string = 'Topics';
+    showYAxisLabel: boolean = true;
+    xAxisLabel: string = 'Number of articles';
+    colorScheme = "flame";
+    roundEdges = false;
+
     constructor() {}
 
-    options : any = {
-        color: ['#3398DB'],
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: [
-          {
-            type: 'value',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
-            axisTick: {
-              alignWithLabel: true
-            }
-          }
-        ],
-        yAxis: [{
-            inverse: true,
-            type: 'category'
-        }],
-        series: [{
-          name: 'Counters',
-          type: 'bar',
-          barWidth: '60%',
-          data: [10, 52, 200, 334, 390, 330, 220],
-          animationDelay: function(idx: number) {
-            return idx * 250;
-          },
-          animationEasingUpdate: "linear"
-        }],
-        animationEasing: 'ElasticOut',
-        animationDelayUpdate: 5,
-    };
+    onSelect(data:any): void {
+        console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+    }
+
+    onActivate(data:any): void {
+        console.log('Activate', JSON.parse(JSON.stringify(data)));
+    }
+
+    onDeactivate(data:any): void {
+        console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+    }
 }
