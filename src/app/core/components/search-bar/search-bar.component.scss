@@ -51,13 +51,35 @@
         color: #a5abb1;
         font-size: 16px;
         opacity: 1; /* Firefox */
-      }
+    }
       
-      :-ms-input-placeholder { /* Internet Explorer 10-11 */
-        color: #a5abb1;
-      }
-      
-      ::-ms-input-placeholder { /* Microsoft Edge */
-        color: #a5abb1;
-      }
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #a5abb1;
+    }
+    
+    ::-ms-input-placeholder { /* Microsoft Edge */
+    color: #a5abb1;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 0;
+        
+        .search-icon {
+            display: none;
+        }
+
+        mat-label {
+            padding-left: 0;
+        }
+    
+        input {
+            font-size: 13px;
+            padding-left: 0;
+            text-overflow: ellipsis;
+        }
+
+        ::placeholder {
+            font-size: 13px;
+        }
+    }
 }

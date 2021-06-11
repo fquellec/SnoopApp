@@ -8,4 +8,9 @@
         cursor: pointer;
         padding: 25px 0;
     }
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        padding: 0;
+    }
 }

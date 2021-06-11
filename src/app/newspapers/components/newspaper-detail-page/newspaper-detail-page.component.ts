@@ -5,7 +5,7 @@ import { switchMap } from 'rxjs/operators';
 import { Analysis } from './../../../core/models/analysis.model';
 import { NewspaperService } from './../../services/newspaper.service';
 import { Newspaper } from './../../../core/models/newspaper.model';
-import { newspaperDetailAnimations } from './../../animations/newspaper-dashboard.animation';
+import { newspaperDetailAnimations } from './../../animations/newspaper-detail-page.animation';
 
 @Component({
     selector: 'ana-newspaper-detail-page',

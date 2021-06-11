@@ -1,3 +1,4 @@
+import { GraphTypeEnum } from './../../../core/models/graph-type.enum';
 import { TrendsService } from './../../services/trends.service';
 import { Component, OnInit } from '@angular/core';
 

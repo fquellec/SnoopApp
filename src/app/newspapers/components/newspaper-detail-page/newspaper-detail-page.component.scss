@@ -1,12 +1,22 @@
 .page-container {
     display: grid;
     grid-auto-flow: column;
-    
+
     &.small {
         grid-template-columns: 3fr 1fr;
 
         .dashboard-container {
             justify-content: unset;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        display: block;
+        
+        &.small {
+            .dashboard-container {
+                display: none;
+            }
         }
     }
 

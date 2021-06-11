@@ -6,6 +6,22 @@
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
     transition: all .15s ease-in-out;
 
+    @media screen and (max-width: 768px) {
+        display: grid;
+        grid-template-columns: max-content auto;
+        padding: 5px 10px;
+
+        .arrow-icon {
+            align-self: center;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        .arrow-icon {
+            display: none;
+        }
+    }
+
     &.bubble {
         padding: 15px 40px;
         border-color: var(--tertiary);
@@ -50,15 +66,8 @@
     &.principal {
         --bubbleSize: 240px;
 
-        align-items: center;
-        border-color: var(--secondary);
-        border: thin solid var(--secondary);
-        border-radius: 100%;
-        display: grid;
         padding: 20px;
         text-align: center;
-        height: var(--bubbleSize);
-        width: var(--bubbleSize);
 
         h2 {
             border-bottom: 0.6px solid white;
@@ -68,15 +77,38 @@
             width: 100%;
         }
 
-        .info {
-            display: grid;
-            margin: 18px 0;
-            row-gap: 8px;
-        }
-
         .bubble-content .info .stat {
             color: var(--secondary);
             font-size: 30px;
+        }
+
+        @media screen and (min-width: 768px) {
+            align-items: center;
+            border-radius: 100%;
+            border: thin solid var(--secondary);
+            height: var(--bubbleSize);
+            width: var(--bubbleSize);
+            display: grid;
+
+            .info {
+                display: grid;
+                margin: 18px 0;
+                row-gap: 8px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            border: none;
+            display: block;
+
+            h2 {
+                border-bottom: none;
+            }
+
+            .bubble-content .info .stat {
+                color: var(--secondary);
+                font-size: 24px;
+            }
         }
     }
 

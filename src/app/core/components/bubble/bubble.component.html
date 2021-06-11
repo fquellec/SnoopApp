@@ -1,4 +1,7 @@
 <div class="item" [ngClass]="{'bubble': bubble, 'principal': principal, 'corner': corner, 'selected': selected}">
+    <div class="arrow-icon" *ngIf="!principal">
+        <mat-icon class="arrow-icon" *ngIf="!principal">keyboard_arrow_left</mat-icon>
+    </div>
     <div class="bubble-content">
         <h2>{{ title }}</h2>
         <div class="info"> <span class="stat">{{ info.statNumber }}</span> {{ info.statName }}</div>

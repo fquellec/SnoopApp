@@ -1,12 +1,13 @@
+import { Graph } from './graph.model';
 import { BaseModel } from './base.model';
 import { StatInfo } from './stat-info.model';
 
 /* tslint:disable: variable-name */
 export class Analysis extends BaseModel {
     private _description: StatInfo;
-    private _graphs: any[];
+    private _graphs: Graph[];
 
-    constructor(id: string, title: string, description: StatInfo, graphs: any[]) {
+    constructor(id: string, title: string, description: StatInfo, graphs: Graph[]) {
         super(id, title);
         this._description = description;
         this._graphs = graphs;
@@ -16,7 +17,7 @@ export class Analysis extends BaseModel {
         return this._description;
     }
 
-    public get graphs(): any[] {
+    public get graphs(): Graph[] {
         return this._graphs;
     }
 }

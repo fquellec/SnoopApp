@@ -14,8 +14,4 @@ export class NewspaperAnalysisComponent {
     public onClose(): void {
         this.hasClosedAnalysis.emit();
     }
-
-    public getGraphId(index: number): string {
-        return this.analysis.title.replace(' ', '-') + index;
-    }
 }

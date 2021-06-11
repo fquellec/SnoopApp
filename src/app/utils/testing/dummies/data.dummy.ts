@@ -1,7 +1,4 @@
-import { Newspaper } from './../../../core/models/newspaper.model';
-import { of, throwError } from 'rxjs';
-import { Analysis } from 'src/app/core/models/analysis.model';
-import { StatInfo } from 'src/app/core/models/stat-info.model';
+import { of } from 'rxjs';
 
 // Dummy trends
 export const dummyTrends = [
@@ -21,24 +18,68 @@ export const dummyTrends2 = [
 ];
 export const dummyTrendsResponse = of(dummyTrends);
 
-export const dummyAnalyses = [
-    new Analysis('topics', 'Topics', new StatInfo('Health', '47%'), [dummyTrends2]),
-    // new Analysis('NA', new StatInfo('info', 'top'), []),
-    new Analysis('gendertracker', 'Gender tracker', new StatInfo('Men', '78%'), [dummyTrends]),
-    new Analysis('sentiment', 'Sentiment', new StatInfo('Positive', '65%'), [dummyTrends]),
-    // new Analysis('NA', new StatInfo('info', 'bottom'), []),
-    new Analysis('keywords', 'Keywords', new StatInfo('', '"pute"'), [dummyTrends]),
-    new Analysis('sources', 'Sources', new StatInfo('Sources', '147'), [dummyTrends]),
-    new Analysis('diversity', 'Diversity', new StatInfo('Information', '0.58%'), [dummyTrends]),
+export const dummyTopicsGraphData = [
+    {
+        name: 'Sport',
+        value: 4200
+    },
+    {
+        name: 'Science',
+        value: 4000
+    },
+    {
+        name: 'Entertainment',
+        value: 3000
+    },
+    {
+        name: 'Politic',
+        value: 2800
+    },
+    {
+        name: 'Health',
+        value: 1000
+    }
+    ,
+    {
+        name: 'Economy',
+        value: 800
+    }
 ];
 
-export const dummyNewspaper = (newspaperName: string) => new Newspaper(
-    newspaperName.toLowerCase().replace('_', ''),
-    newspaperName,
-    new StatInfo('articles', '13290', ['from 12.07.2018', 'to 03.03.2021']),
-    dummyAnalyses
-);
+export const dummyGenderData = [
+    {
+        name: 'Men quoted',
+        series: [
+            {
+                name: 2018,
+                value: 620000
+            },
+            {
+                name: 2019,
+                value: 730000
+            },
+            {
+                name: 2020,
+                value: 894000
+            }
+        ]
+    },
 
-export const dummyNewspaperResponse = (newspaperName: string) => of(dummyNewspaper(newspaperName));
-
-export const dummyErrorResponse = throwError(new Error());
+    {
+        name: 'Women quoted',
+        series: [
+            {
+                name: 2018,
+                value: 250000
+            },
+            {
+                name: 2019,
+                value: 309000
+            },
+            {
+                name: 2020,
+                value: 311000
+            }
+        ]
+    },
+];
