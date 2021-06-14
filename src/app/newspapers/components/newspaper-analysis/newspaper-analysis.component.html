@@ -1,6 +1,5 @@
 <div class="analysis-container">
-    <mat-icon (click)="onClose()">close</mat-icon>
-    <ana-card [title]="analysis.title">
+    <ana-card [title]="analysis.title" (hasClosedEvent)="onClose()">
         <ng-container *ngIf="analysis.graphs?.length ; else noData">
             <ana-bars *ngFor="let graph of analysis.graphs ; let i = index" [graph]="graph"></ana-bars>
         </ng-container>

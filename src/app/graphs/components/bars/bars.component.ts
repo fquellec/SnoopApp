@@ -2,6 +2,8 @@ import { GraphTypeEnum } from './../../../core/models/graph-type.enum';
 import { Component, Input } from '@angular/core';
 import { dummyTopicsGraph } from 'src/app/utils/testing/dummies/graphs.dummies';
 
+const MOBILE_DEVICE_REGEX = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/;
+
 @Component({
     selector: 'ana-bars',
     templateUrl: './bars.component.html',
@@ -13,48 +15,20 @@ export class BarsComponent {
     // to use in template
     public GraphTypeEnum = GraphTypeEnum;
 
-    view = '';//[number, number] = [900, 500];
-
-    single = [
-        {
-            name: 'Sport',
-            value: 4200
-        },
-        {
-            name: 'Science',
-            value: 4000
-        },
-        {
-            name: 'Entertainment',
-            value: 3000
-        },
-        {
-            name: 'Politic',
-            value: 2800
-        },
-        {
-            name: 'Health',
-            value: 1000
-        }
-        ,
-        {
-            name: 'Economy',
-            value: 800
-        }
-    ];
-
     // options
-    showXAxis = true;
-    showYAxis = true;
-    gradient = false;
-    showLegend = false;
-    showGridLines = false;
-    showXAxisLabel = true;
-    yAxisLabel = 'Topics';
-    showYAxisLabel = true;
-    xAxisLabel = 'Number of articles';
-    // colorScheme = 'flame';
-    colorScheme = {
+    public view!: [number, number];
+    public showXAxis = true;
+    public showYAxis = true;
+    public gradient = false;
+    public showLegend = false;
+    public showGridLines = false;
+    public showXAxisLabel = true;
+    public yAxisLabel = 'Topics';
+    public showYAxisLabel = true;
+    public xAxisLabel = 'Number of articles';
+    public maxYAxisTickLength = 16;
+
+    public colorScheme = {
         domain: [
             '#F97F51',
             '#1B9CFC',
@@ -76,9 +50,22 @@ export class BarsComponent {
             '#82589F',
         ]
     };
-    roundEdges = false;
+    public roundEdges = false;
 
-    constructor() { }
+    public yAxisTickFormatting = () => '';
+
+    constructor() {
+        if (this.isMobileDevice()) {
+            this.view = [window.innerWidth * 0.8, window.innerHeight * 0.6];
+            this.showYAxisLabel = false;
+            this.showLegend = false;
+            this.maxYAxisTickLength = 4;
+        }
+    }
+
+    public isMobileDevice(): boolean {
+        return MOBILE_DEVICE_REGEX.test(navigator.userAgent);
+    }
 
     public onSelect(data: any): void {
         console.log('Item clicked', JSON.parse(JSON.stringify(data)));

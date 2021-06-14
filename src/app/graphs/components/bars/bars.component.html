@@ -1,18 +1,18 @@
 <h2>{{ graph.title }}</h2>
 <div class="graph" [ngSwitch]="graph.type">
-    <ngx-charts-bar-horizontal *ngSwitchCase="GraphTypeEnum.BarsHorizontal" [scheme]="colorScheme" [results]="graph.data" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
-        [legend]="showLegend" [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
-        [roundEdges]="roundEdges" (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+    <ngx-charts-bar-horizontal *ngSwitchCase="GraphTypeEnum.BarsHorizontal" [showDataLabel]="false" [view]="view" [scheme]="colorScheme" [results]="graph.data" [gradient]="gradient"
+        [xAxis]="showXAxis" [yAxis]="showYAxis" [maxYAxisTickLength]="4" [legend]="showLegend" [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel"
+        [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [roundEdges]="roundEdges" (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
     </ngx-charts-bar-horizontal>
-    <ngx-charts-bar-vertical *ngSwitchCase="GraphTypeEnum.BarsVertical" [scheme]="'flame'" [results]="graph.data" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
-        [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [roundEdges]="roundEdges"
-        (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+    <ngx-charts-bar-vertical *ngSwitchCase="GraphTypeEnum.BarsVertical" [view]="view" [scheme]="'flame'" [results]="graph.data" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
+        [legend]="showLegend" [showGridLines]="showGridLines" [maxYAxisTickLength]="4" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel" [roundEdges]="roundEdges" (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
     </ngx-charts-bar-vertical>
-    <ngx-charts-line-chart *ngSwitchCase="GraphTypeEnum.Linear" [scheme]="colorScheme" [results]="graph.data" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [legend]="showLegend"
-        [showGridLines]="showGridLines" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" (select)="onSelect($event)"
-        (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+    <ngx-charts-line-chart *ngSwitchCase="GraphTypeEnum.Linear" [view]="view" [scheme]="colorScheme" [results]="graph.data" [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis"
+        [legend]="showLegend" [showGridLines]="showGridLines" [maxYAxisTickLength]="4" [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel" (select)="onSelect($event)" (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
     </ngx-charts-line-chart>
-    <ngx-charts-gauge *ngSwitchCase="GraphTypeEnum.Gauge" [scheme]="colorScheme" [results]="graph.data" [legend]="showLegend" (select)="onSelect($event)" (activate)="onActivate($event)"
+    <ngx-charts-gauge *ngSwitchCase="GraphTypeEnum.Gauge" [view]="view" [scheme]="colorScheme" [results]="graph.data" [legend]="showLegend" (select)="onSelect($event)" (activate)="onActivate($event)"
         (deactivate)="onDeactivate($event)">
     </ngx-charts-gauge>
 </div>

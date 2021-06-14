@@ -1,11 +1,11 @@
 <div class="top-menu" role="banner">
     <div class="left-items menu-items">
-        <mat-icon id="menuButton" (click)="navigateToHomePage()">home</mat-icon>
+        <mat-icon id="menuButton" (click)="navigateToHomePage()">search</mat-icon>
     </div>
     <img class="logo" src="assets/logo.png" alt="Snoop" (click)="navigateToHomePage()">
     <div class="right-items menu-items">
         <div class="languages">
-            <span *ngFor="let lang of languages" class="lang-item" [ngClass]="{ 'selected': selectedLanguage === lang}" (click)="changeLanguage(lang)">
+            <span *ngFor="let lang of languages" class="lang-item" [ngClass]="{ 'selected': selectedLanguage === lang }" (click)="changeLanguage(lang)">
                 {{ lang }}
             </span>
         </div>

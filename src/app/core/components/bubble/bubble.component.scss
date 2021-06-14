@@ -6,22 +6,6 @@
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
     transition: all .15s ease-in-out;
 
-    @media screen and (max-width: 768px) {
-        display: grid;
-        grid-template-columns: max-content auto;
-        padding: 5px 10px;
-
-        .arrow-icon {
-            align-self: center;
-        }
-    }
-
-    @media screen and (min-width: 768px) {
-        .arrow-icon {
-            display: none;
-        }
-    }
-
     &.bubble {
         padding: 15px 40px;
         border-color: var(--tertiary);
@@ -29,18 +13,16 @@
         .bubble-content .info .stat{
             color: var(--tertiary);
         }
-
     }
     
     &.selected {
         border-color: var(--secondary);
         transform: scale($scaleRatio);
 
-        .bubble-content .info .stat{
+        .bubble-content .info .stat {
             color: var(--secondary);
         }
     }
-    
 
     .bubble-content {
         display: grid;
@@ -49,11 +31,18 @@
         .info {
             font-size: 20px;
             font-weight: 600;
-
+            
             .stat {
                 color: var(--secondary);
                 font-size: 24px;
                 font-weight: 800;
+            }
+        }
+        
+        @media screen and (max-width: 768px) {
+            
+            .info, h2 {
+                text-align: center;
             }
         }
     }

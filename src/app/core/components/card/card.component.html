@@ -1,5 +1,6 @@
 <div class="card-container" [ngClass]="{ 'bubble': bubble }">
     <div class="card-header" *ngIf="title">
+        <mat-icon (click)="onClose()">close</mat-icon>
         <h1>{{ title }}</h1>
     </div>
     <div class="card-content">

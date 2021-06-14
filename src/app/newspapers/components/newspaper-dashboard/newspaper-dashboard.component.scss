@@ -1,16 +1,22 @@
 .dashboard {
-    @media screen and (min-width: 768px) {
-        display: grid;
-        margin-top: 90px;
+    --top-margin: 69px;
+    --navbar-height: 90px;
 
+    display: grid;
+    grid-gap: 5px;
+    row-gap: 5px;
+    justify-items: center;
+    max-height: calc(100vh - var(--top-margin) - var(--navbar-height) - 5px);
+    overflow: auto;
+
+    @media screen and (min-width: 768px) {
+        margin-top: var(--top-margin);
+        
         &.bubble {
             align-items: center;
             border-radius: 100%;
             grid-template-columns: 2fr 3fr 2fr;
             grid-template-rows: 2fr 3fr 2fr;
-            grid-gap: 5px;
-            row-gap: 5px;
-            justify-items: center;
             padding: 50px;
             margin-top: 0;
     
@@ -63,5 +69,14 @@
             }
         }
     }
-    
+
+
+    @media screen and (max-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+
+        .general {
+            grid-column: 1 / -1;
+        }
+    }
 }
