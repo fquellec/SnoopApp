@@ -1,6 +1,7 @@
 .item {
     $scaleRatio: 1.05;
 
+    position: relative;
     border-top: thin solid var(--secondary);
     padding: 5px 40px;
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
@@ -17,7 +18,7 @@
     
     &.selected {
         border-color: var(--secondary);
-        /* transform: scale($scaleRatio); */
+        transform: scale($scaleRatio);
 
         .bubble-content .info .stat {
             color: var(--secondary);
