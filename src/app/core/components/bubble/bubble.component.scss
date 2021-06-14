@@ -17,7 +17,7 @@
     
     &.selected {
         border-color: var(--secondary);
-        transform: scale($scaleRatio);
+        /* transform: scale($scaleRatio); */
 
         .bubble-content .info .stat {
             color: var(--secondary);

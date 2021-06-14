@@ -22,11 +22,11 @@ const openAnalysisAnimation = trigger(
 
 const dashboardAnimation = trigger(
     'dashboardAnimation', [
-    state('small', style({ transform: 'translateX(0)' })),
+    state('small', style({ /* transform: 'translateX(0)' */ })),
     transition('small => full', [
         animate('300ms', style({ transform: 'translateX(-110%)', opacity: 1 }))
     ]),
-    state('full', style({ transform: 'translateX(0)' })),
+    state('full', style({ /* transform: 'translateX(0)'  */ })),
     transition(':enter', [
         style({ transform: 'translateY(100%)', opacity: 1 }),
         animate('300ms', style({ transform: 'translateY(0)', opacity: 0 }))
