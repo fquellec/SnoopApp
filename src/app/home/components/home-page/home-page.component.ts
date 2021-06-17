@@ -3,7 +3,7 @@ import { SnoopApiService } from './../../../core/services/snoop-api.service';
 import { Newspaper } from './../../../core/models/newspaper.model';
 
 @Component({
-    selector: 'ana-home-page',
+    selector: 'snoop-home-page',
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.scss']
 })

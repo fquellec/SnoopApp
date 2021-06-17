@@ -1,7 +1,7 @@
 <h1>Trends</h1>
-<ana-card>
-    <ana-bars *ngIf="!fetchDataError ; else fetchErrorMessage" [data]="trendsData"></ana-bars>
+<snoop-card>
+    <snoop-bars *ngIf="!fetchDataError ; else fetchErrorMessage" [data]="trendsData"></snoop-bars>
     <ng-template #fetchErrorMessage>
         Error fetching the data
     </ng-template>
-</ana-card>
+</snoop-card>

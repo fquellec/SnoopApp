@@ -2,7 +2,7 @@ import { Component, Input, ViewEncapsulation, Output, EventEmitter } from '@angu
 import { Newspaper } from './../../../core/models/newspaper.model';
 
 @Component({
-    selector: 'ana-newspaper-dashboard',
+    selector: 'snoop-newspaper-dashboard',
     templateUrl: './newspaper-dashboard.component.html',
     styleUrls: ['./newspaper-dashboard.component.scss'],
     encapsulation: ViewEncapsulation.None

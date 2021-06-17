@@ -1,9 +1,10 @@
-<div class="page-container">
+<snoop-top-menu-component></snoop-top-menu-component>
+<main class="page-container">
     <div class="content">
         <p class="description"><span class="snoop">Snoop</span> is a data analysis tool that will help you find a large variety of information on diverse news media.</p>
         <p class="indication">Please search for a specific media in the search bar above to learn more about various aspects of a news media,<br>
             such as a gender tracker, sentiment anaylsis on headlines, and more.
         </p>
-        <ana-search-bar-component [loading]="loading" [options]="newspaperList"></ana-search-bar-component>
+        <snoop-search-bar-component [loading]="loading" [options]="newspaperList"></snoop-search-bar-component>
     </div>
-</div>
+</main>

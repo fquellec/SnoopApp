@@ -1,10 +1,10 @@
 <div class="dashboard" [ngClass]="{'bubble': bubbleDisplay}">
     <div class="general">
-        <ana-bubble *ngIf="bubbleDisplay" class="principal" [title]="newspaper.title" [info]="newspaper.description" [principal]="true"></ana-bubble>
+        <snoop-bubble *ngIf="bubbleDisplay" class="principal" [title]="newspaper.title" [info]="newspaper.description" [principal]="true"></snoop-bubble>
     </div>
     <div *ngFor="let analysis of newspaper.analyses, let i = index" [ngClass]="classes[i]">
-        <ana-bubble [title]=" analysis.title" [bubble]="!bubbleDisplay" [info]="analysis.description" (click)="openAnalysis(i)" [corner]="classes[i].includes('corner')"
+        <snoop-bubble [title]=" analysis.title" [bubble]="!bubbleDisplay" [info]="analysis.description" (click)="openAnalysis(i)" [corner]="classes[i].includes('corner')"
             [selected]="!bubbleDisplay && openedAnalysis === i">
-        </ana-bubble>
+        </snoop-bubble>
     </div>
 </div>

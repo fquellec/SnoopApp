@@ -1,10 +1,10 @@
 <div class="analysis-container">
-    <ana-card [title]="analysis.title" (hasClosedEvent)="onClose()">
+    <snoop-card [title]="analysis.title" (hasClosedEvent)="onClose()">
         <ng-container *ngIf="analysis.graphs?.length ; else noData">
-            <ana-bars *ngFor="let graph of analysis.graphs ; let i = index" [graph]="graph"></ana-bars>
+            <snoop-bars *ngFor="let graph of analysis.graphs ; let i = index" [graph]="graph"></snoop-bars>
         </ng-container>
         <ng-template #noData>
             <div>No data yet to expose</div>
         </ng-template>
-    </ana-card>
+    </snoop-card>
 </div>

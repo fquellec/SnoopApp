@@ -2,7 +2,7 @@ import { RoutingService } from './../../services/routing.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'ana-top-menu-component',
+    selector: 'snoop-top-menu-component',
     templateUrl: './top-menu.component.html',
     styleUrls: ['./top-menu.component.scss']
 })

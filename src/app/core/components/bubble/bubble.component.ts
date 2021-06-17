@@ -2,7 +2,7 @@ import { StatInfo } from './../../models/stat-info.model';
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'ana-bubble',
+    selector: 'snoop-bubble',
     templateUrl: './bubble.component.html',
     styleUrls: ['./bubble.component.scss'],
 })

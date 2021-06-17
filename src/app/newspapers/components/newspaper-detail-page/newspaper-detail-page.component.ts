@@ -8,7 +8,7 @@ import { Newspaper } from './../../../core/models/newspaper.model';
 import { newspaperDetailAnimations } from './../../animations/newspaper-detail-page.animation';
 
 @Component({
-    selector: 'ana-newspaper-detail-page',
+    selector: 'snoop-newspaper-detail-page',
     templateUrl: './newspaper-detail-page.component.html',
     styleUrls: ['./newspaper-detail-page.component.scss'],
     animations: newspaperDetailAnimations

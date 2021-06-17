@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'ana-card',
+    selector: 'snoop-card',
     templateUrl: './card.component.html',
     styleUrls: ['./card.component.scss']
 })

@@ -6,7 +6,7 @@ import { Newspaper } from './../../models/newspaper.model';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
-    selector: 'ana-search-bar-component',
+    selector: 'snoop-search-bar-component',
     templateUrl: './search-bar.component.html',
     styleUrls: ['./search-bar.component.scss']
 })

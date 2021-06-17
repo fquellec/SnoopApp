@@ -1,9 +1,8 @@
-import { GraphTypeEnum } from './../../../core/models/graph-type.enum';
 import { TrendsService } from './../../services/trends.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'ana-trends',
+    selector: 'snoop-trends',
     templateUrl: './trends.component.html',
     styleUrls: ['./trends.component.scss']
 })

@@ -172,14 +172,14 @@ $mat-primary: (
 );
 
 //@include angular-material-theme($AnaNewsApp-theme);
-//html, body { width: 100%; }
+html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: var(--primary);}
 
 .page-container {
     background: linear-gradient(var(--primary), 30%, var(--background), 80%, var(--primary));
-    min-height: 60%;
-    max-height: 80%;
     padding: 25px;
+    position: relative;
+    top: 90px;
 }
 
 .ngx-charts text{ fill: #fff; }

@@ -4,7 +4,7 @@ import { BaseGraph } from '../../models/base-graph.model';
 
 
 @Component({
-    selector: 'ana-gauge',
+    selector: 'snoop-gauge',
     templateUrl: './gauge.component.html',
     styleUrls: ['./gauge.component.scss']
 })

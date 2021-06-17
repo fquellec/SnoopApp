@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'ana-page-component',
+    selector: 'snoop-page-component',
     templateUrl: './page.component.html',
     styleUrls: ['./page.component.scss']
 })

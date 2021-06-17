@@ -1,13 +1,14 @@
+<snoop-top-menu-component></snoop-top-menu-component>
 <div class="page-container" [ngClass]="{'small': displayAnalysis}">
     <ng-container *ngIf="!loading ; else loader">
         <ng-container *ngIf="newspaper ; else noData">
             <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone($event)" *ngIf="displayedAnalysis">
-                <ana-newspaper-analysis *ngIf="displayedAnalysis" [analysis]="displayedAnalysis" (hasClosedAnalysis)="closeAnalysis()"></ana-newspaper-analysis>
+                <snoop-newspaper-analysis *ngIf="displayedAnalysis" [analysis]="displayedAnalysis" (hasClosedAnalysis)="closeAnalysis()"></snoop-newspaper-analysis>
             </div>
             <div class="dashboard-container">
-                <ana-newspaper-dashboard [@dashboardAnimation]="fullDashboard ? 'full': 'small'" (@dashboardAnimation.done)="onDashboardAnimationDone($event)" [newspaper]="newspaper"
+                <snoop-newspaper-dashboard [@dashboardAnimation]="fullDashboard ? 'full': 'small'" (@dashboardAnimation.done)="onDashboardAnimationDone($event)" [newspaper]="newspaper"
                     [bubbleDisplay]="!displayAnalysis" (hasOpenedAnalysis)="openAnalysis($event)">
-                </ana-newspaper-dashboard>
+                </snoop-newspaper-dashboard>
             </div>
         </ng-container>
         <ng-template #noData>

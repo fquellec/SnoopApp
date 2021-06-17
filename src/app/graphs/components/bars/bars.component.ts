@@ -5,7 +5,7 @@ import { dummyTopicsGraph } from 'src/app/utils/testing/dummies/graphs.dummies';
 const MOBILE_DEVICE_REGEX = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/;
 
 @Component({
-    selector: 'ana-bars',
+    selector: 'snoop-bars',
     templateUrl: './bars.component.html',
     styleUrls: ['./bars.component.scss']
 })
