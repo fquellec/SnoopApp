@@ -1,0 +1,26 @@
+.page-container {
+    display: grid;
+    height: 50%;
+    align-content: center;
+    justify-items: center;
+    justify-content: center;
+
+    h1 {
+        color: var(--secondary);
+        font-size: 2rem;
+        font-weight: 500;
+    }
+
+    p {
+        text-align: center;
+    }
+
+    mat-icon {
+        color: var(--tertiary);
+        font-size: 22px;
+    }
+
+    .button-label {
+        margin-left: 5px;
+    }
+}
