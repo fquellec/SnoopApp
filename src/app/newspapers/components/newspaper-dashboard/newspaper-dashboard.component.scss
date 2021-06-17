@@ -5,7 +5,6 @@
     display: grid;
     grid-gap: 5px;
     row-gap: 5px;
-    justify-items: center;
     max-height: calc(100vh - var(--top-margin) - var(--navbar-height) - 5px);
     overflow: auto;
 
@@ -23,6 +22,7 @@
             .general {
                 grid-column: 2;
                 grid-row: 2;
+                justify-self: center;
             }
         
             .top, .bottom {
@@ -73,7 +73,6 @@
 
     @media screen and (max-width: 768px) {
         grid-template-columns: repeat(2, 1fr);
-        justify-items: center;
 
         .general {
             grid-column: 1 / -1;

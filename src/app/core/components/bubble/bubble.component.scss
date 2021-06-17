@@ -2,7 +2,7 @@
     $scaleRatio: 1.05;
 
     position: relative;
-    border-top: thin solid var(--secondary);
+    border-top: thin solid var(--tertiary);
     padding: 5px 40px;
     background-color: linear-gradient(var(--primary), var(--background), var(--primary));
     transition: all .15s ease-in-out;
@@ -34,7 +34,7 @@
             font-weight: 600;
             
             .stat {
-                color: var(--secondary);
+                color: var(--tertiary);
                 font-size: 24px;
                 font-weight: 800;
             }

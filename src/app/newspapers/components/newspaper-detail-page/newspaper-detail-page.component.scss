@@ -2,7 +2,11 @@
     display: grid;
     grid-auto-flow: column;
 
-    &.small {
+    @media screen and (max-width: 768px) {
+        margin-top: 0;
+    }
+
+    &.display-analysis {
         grid-template-columns: 3fr 1fr;
 
         .dashboard-container {
@@ -13,7 +17,7 @@
     @media screen and (max-width: 768px) {
         display: block;
         
-        &.small {
+        &.display-analysis {
             .dashboard-container {
                 display: none;
             }
@@ -30,5 +34,15 @@
         font-weight: 600;
         justify-self: center;
         padding: 50px;
+    }
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    .back-label {
+        font-weight: 500;
     }
 }

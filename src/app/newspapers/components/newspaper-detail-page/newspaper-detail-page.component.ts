@@ -1,3 +1,5 @@
+import { RoutingService } from './../../../core/services/routing.service';
+import { DeviceDetectorService } from 'ngx-device-detector';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -22,12 +24,17 @@ export class NewspaperDetailPageComponent implements OnInit {
     public fullDashboard = true;
     public displayAnalysis = false;
     public displayedAnalysis?: Analysis;
+    public isMobile: boolean;
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private newspaperService: NewspaperService,
-        private loaderService: NgxSpinnerService
-    ) { }
+        private loaderService: NgxSpinnerService,
+        private deviceDetector: DeviceDetectorService,
+        private routingService: RoutingService
+    ) {
+        this.isMobile = this.deviceDetector.isMobile();
+    }
 
     public ngOnInit(): void {
         this.loaderService.show();
@@ -69,6 +76,10 @@ export class NewspaperDetailPageComponent implements OnInit {
         if (!this.fullDashboard) {
             this.displayAnalysis = true;
         }
+    }
+
+    public navigateBack(): void {
+        this.routingService.navigateToHomePage();
     }
 
 }

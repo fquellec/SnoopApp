@@ -1,5 +1,10 @@
-<snoop-top-menu-component></snoop-top-menu-component>
-<div class="page-container" [ngClass]="{'small': displayAnalysis}">
+<snoop-top-menu-component *ngIf="!isMobile ; else backButton"></snoop-top-menu-component>
+<ng-template #backButton>
+    <div class="back-button" (click)="navigateBack()">
+        <mat-icon>chevron_left</mat-icon> <span class="back-label">Home</span>
+    </div>
+</ng-template>
+<div class="page-container" [ngClass]="{'display-analysis': displayAnalysis, 'small': isMobile}">
     <ng-container *ngIf="!loading ; else loader">
         <ng-container *ngIf="newspaper ; else noData">
             <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone($event)" *ngIf="displayedAnalysis">
