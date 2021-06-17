@@ -1,5 +1,7 @@
+import { SnoopApiService } from './../../services/snoop-api.service';
+import { Newspaper } from './../../models/newspaper.model';
 import { RoutingService } from './../../services/routing.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
     selector: 'snoop-top-menu-component',
@@ -10,11 +12,18 @@ export class TopMenuComponent implements OnInit {
 
     public languages = ['en', 'fr'];
     public selectedLanguage = 'en';
-    public searchOpened = false;
+    public newspaperList: Newspaper[] = [];
+    @Input() public displaySearch = false;
+    @Input() public displayHome = true;
 
-    constructor(private routingService: RoutingService) { }
+    constructor(private routingService: RoutingService, private snoopService: SnoopApiService) { }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
+        this.snoopService.getNewspapersList().subscribe({
+            next: newspaperList => {
+                this.newspaperList = newspaperList;
+            }
+        });
     }
 
     public changeLanguage(lang: string): void {
@@ -23,10 +32,6 @@ export class TopMenuComponent implements OnInit {
 
     public navigateToHomePage(): void {
         this.routingService.navigateToHomePage();
-    }
-
-    public toggleSearch(): void {
-        this.searchOpened = !this.searchOpened;
     }
 
 }

@@ -4,6 +4,7 @@ import { map, debounceTime } from 'rxjs/operators';
 import { RoutingService } from './../../services/routing.service';
 import { Newspaper } from './../../models/newspaper.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
     selector: 'snoop-search-bar-component',
@@ -12,15 +13,20 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SearchBarComponent implements AfterViewInit {
 
-    @Input() small = false;
+    @Input() navbarDisplay = false;
     @Input() options: Newspaper[] = [];
     @Input() loading = true;
     @ViewChild('searchInput') searchInput!: ElementRef;
     public filteredOptions: Newspaper[] = [];
     public searchValue = '';
     public inputPlaceholder = 'Enter the name of a newspaper (e.g. Le Monde, Le Figaro)';
+    public searchForm: FormGroup;
 
-    constructor(private routingService: RoutingService, private loaderService: NgxSpinnerService) { }
+    constructor(private routingService: RoutingService, private loaderService: NgxSpinnerService, private formBuilder: FormBuilder) {
+        this.searchForm = this.formBuilder.group({
+            searchValue: '',
+        });
+    }
 
     public ngAfterViewInit(): void {
         this.loaderService.show();
@@ -37,19 +43,22 @@ export class SearchBarComponent implements AfterViewInit {
 
     /**
      * Searchs change event handler
-     * @param searchValueChanged  search input change
+     * @param searchValue  search input change
      */
-    public searchChange(searchValueChanged: any): void {
-        this.searchValue = searchValueChanged;
+    public searchChange(searchValue: any): void {
+        this.searchForm.patchValue({ searchValue });
+        this.searchValue = searchValue;
         this.filteredOptions = this.options.filter(x => x.title.toLowerCase().includes(this.searchValue.toLowerCase()));
     }
 
     public navigateToNewspaper(newspaper: string): void {
+        this.searchForm.reset();
         this.routingService.navigateToNewspaper(newspaper);
     }
 
     public getFilteredOptions(): Newspaper[] {
-        this.filteredOptions = this.options.filter(x => this.formatSearch(x.title).includes(this.formatSearch(this.searchValue)));
+        this.filteredOptions = this.options.filter(x =>
+            this.formatSearch(x.title).includes(this.formatSearch(this.searchValue)));
         return this.filteredOptions;
     }
 

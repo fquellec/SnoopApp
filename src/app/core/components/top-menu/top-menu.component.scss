@@ -3,7 +3,7 @@
     background: linear-gradient(var(--background), 30%, var(--primary));
     color: white;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     font-weight: 800;
     height: 70px;
     padding: 10px 50px;
@@ -12,13 +12,25 @@
     top: 0;
     right: 0;
 
-    .logo {
-        cursor: pointer;
-        font-size: 32px;
-        font-weight: 500;
-        margin: 0;
+    &.search-display {
+        grid-template-columns: max-content auto max-content;
+    }
+
+    .center-items {
         justify-self: center;
-        width: 160px;
+        
+        &.search-display {
+            justify-self: flex-start;
+            width: 100%;
+        }
+
+        .logo {
+            cursor: pointer;
+            font-size: 32px;
+            font-weight: 500;
+            margin: 0;
+            width: 160px;
+        }
     }
 
     #menuButton {

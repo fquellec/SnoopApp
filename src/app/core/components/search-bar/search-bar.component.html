@@ -1,8 +1,8 @@
 <div class="search-bar-component">
-    <mat-icon class="search-icon" matPrefix>search</mat-icon>
-    <mat-form-field class="search-form" [ngClass]="{'small': small}" appearance='standard' [floatLabel]="'always'">
-        <mat-label *ngIf="!small">Search for newspapers</mat-label>
-        <input type="text" #searchInput [placeholder]='inputPlaceholder' matInput [matAutocomplete]="auto">
+    <mat-icon *ngIf="!navbarDisplay" class="search-icon" matPrefix>search</mat-icon>
+    <mat-form-field [formGroup]="searchForm" class="search-form" [ngClass]="{'small': navbarDisplay}" [appearance]="navbarDisplay ? 'fill' : 'standard'" [floatLabel]="'always'">
+        <mat-label *ngIf="!navbarDisplay">Search for newspapers</mat-label>
+        <input formControlName="searchValue" type="text" #searchInput [placeholder]='inputPlaceholder' matInput [matAutocomplete]="auto">
         <mat-autocomplete id="options-panel" #auto="matAutocomplete">
             <mat-option *ngIf="loading">
                 <ngx-spinner class="spinner" [showSpinner]="loading" [fullScreen]="false" type="ball-beat" color="#012729" bdColor="none" size="small"></ngx-spinner>

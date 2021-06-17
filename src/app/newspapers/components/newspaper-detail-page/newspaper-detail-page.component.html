@@ -1,4 +1,4 @@
-<snoop-top-menu-component *ngIf="!isMobile ; else backButton"></snoop-top-menu-component>
+<snoop-top-menu-component *ngIf="!isMobile ; else backButton" [displaySearch]="true"></snoop-top-menu-component>
 <ng-template #backButton>
     <div class="back-button" (click)="navigateBack()">
         <mat-icon>chevron_left</mat-icon> <span class="back-label">Home</span>
