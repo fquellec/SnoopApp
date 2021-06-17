@@ -1,6 +1,6 @@
 <div class="top-menu" [ngClass]="{ 'search-display': displaySearch }" role="banner">
     <div class="left-items menu-items">
-        <mat-icon *ngIf="displayHome" id="menuButton" (click)="navigateToHomePage()">house_siding</mat-icon>
+        <span *ngIf="displayHome" id="menuButton" (click)="navigateToHomePage()">Home</span>
     </div>
     <div class="center-items" [ngClass]="{ 'search-display': displaySearch }">
         <img class="logo" *ngIf="!displaySearch" src="assets/logo.png" alt="Snoop" (click)="navigateToHomePage()">
