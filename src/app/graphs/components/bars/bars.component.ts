@@ -1,8 +1,7 @@
-import { GraphTypeEnum } from './../../../core/models/graph-type.enum';
 import { Component, Input } from '@angular/core';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { GraphTypeEnum } from './../../../core/models/graph-type.enum';
 import { dummyTopicsGraph } from 'src/app/utils/testing/dummies/graphs.dummies';
-
-const MOBILE_DEVICE_REGEX = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/;
 
 @Component({
     selector: 'snoop-bars',
@@ -54,17 +53,12 @@ export class BarsComponent {
 
     public yAxisTickFormatting = () => '';
 
-    constructor() {
-        if (this.isMobileDevice()) {
-            this.view = [window.innerWidth * 0.8, window.innerHeight * 0.6];
+    constructor(private deviceDetector: DeviceDetectorService) {
+        if (this.deviceDetector.isMobile()) {
+            this.view = [window.innerWidth * 0.85, window.innerHeight * 0.6];
             this.showYAxisLabel = false;
             this.showLegend = false;
-            this.maxYAxisTickLength = 4;
         }
-    }
-
-    public isMobileDevice(): boolean {
-        return MOBILE_DEVICE_REGEX.test(navigator.userAgent);
     }
 
     public onSelect(data: any): void {
