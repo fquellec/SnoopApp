@@ -5,7 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     font-weight: 800;
-    height: 70px;
+    height: 60px;
     padding: 10px 50px;
     position: fixed;
     left: 0;
@@ -30,7 +30,7 @@
             font-size: 32px;
             font-weight: 500;
             margin: 0;
-            width: 160px;
+            width: 150px;
         }
     }
 
@@ -65,10 +65,23 @@
     }
 
     @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
-        
-        .left-items, .right-items {
+        grid-template-columns: 1fr 2fr;
+        padding: 10px 20px;
+
+        .right-items {
           display: none;
+        }
+
+        .center-items {
+            justify-self: flex-start;
+            
+    
+            .logo {
+                cursor: pointer;
+                position: relative;
+                top: 7px;
+                width: 112px;
+            }
         }
     }
   }

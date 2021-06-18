@@ -179,11 +179,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     background: linear-gradient(var(--primary), 30%, var(--background), 80%, var(--primary));
     padding: 25px;
     position: relative;
-    top: 90px;
-
-    &.small {
-        top: 0;
-    }
+    top: 60px;
 }
 
 .ngx-charts text{ fill: #fff; }
+
+// sidenav backdrop
+.mat-drawer-backdrop.mat-drawer-shown{background-color:rgba(0,0,0,.6)}

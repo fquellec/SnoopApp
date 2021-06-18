@@ -17,4 +17,8 @@ export class RoutingService {
     public navigateToHomePage(): void {
         this.router.navigate(['']);
     }
+
+    public navigateTo(route: string): void {
+        this.router.navigate([route]);
+    }
 }

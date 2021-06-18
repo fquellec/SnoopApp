@@ -1,7 +1,7 @@
 import { SnoopApiService } from './../../services/snoop-api.service';
 import { Newspaper } from './../../models/newspaper.model';
 import { RoutingService } from './../../services/routing.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'snoop-top-menu-component',
@@ -14,7 +14,8 @@ export class TopMenuComponent implements OnInit {
     public selectedLanguage = 'en';
     public newspaperList: Newspaper[] = [];
     @Input() public displaySearch = false;
-    @Input() public displayHome = true;
+    @Input() public displayMenuToggle = true;
+    @Output() public hasToggledMenu = new EventEmitter();
 
     constructor(private routingService: RoutingService, private snoopService: SnoopApiService) { }
 

@@ -1,3 +1,4 @@
-<div class="page-container">
+<snoop-top-menu-component [displaySearch]="displayNavSearch" [displayMenuToggle]="!sidenav.isOpened()" (hasToggledMenu)="sidenav.toggle()"></snoop-top-menu-component>
+<snoop-side-menu-component #sidenav>
     <ng-content></ng-content>
-</div>
+</snoop-side-menu-component>

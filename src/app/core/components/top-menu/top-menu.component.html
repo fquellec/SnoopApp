@@ -1,6 +1,8 @@
 <div class="top-menu" [ngClass]="{ 'search-display': displaySearch }" role="banner">
     <div class="left-items menu-items">
-        <span *ngIf="displayHome" id="menuButton" (click)="navigateToHomePage()">Home</span>
+        <span id="menuButton">
+            <mat-icon (click)="hasToggledMenu.emit()">{{ displayMenuToggle ? 'menu' : 'menu_open'}}</mat-icon>
+        </span>
     </div>
     <div class="center-items" [ngClass]="{ 'search-display': displaySearch }">
         <img class="logo" *ngIf="!displaySearch" src="assets/logo.png" alt="Snoop" (click)="navigateToHomePage()">

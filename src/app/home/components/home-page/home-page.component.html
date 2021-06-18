@@ -1,10 +1,11 @@
-<snoop-top-menu-component [displayHome]="false"></snoop-top-menu-component>
-<main class="page-container">
-    <div class="content">
-        <p class="description"><span class="snoop">Snoop</span> is a data analysis tool that will help you find a large variety of information on diverse news media.</p>
-        <p class="indication">Please search for a specific media in the search bar above to learn more about various aspects of a news media,<br>
-            such as a gender tracker, sentiment anaylsis on headlines, and more.
-        </p>
-        <snoop-search-bar-component [loading]="loading" [options]="newspaperList"></snoop-search-bar-component>
-    </div>
-</main>
+<snoop-page-component>
+    <main class="page-container">
+        <div class="content">
+            <p class="description"><span class="snoop">Snoop</span> is a data analysis tool that will help you find a large variety of information on diverse news media.</p>
+            <p class="indication">Please search for a specific media in the search bar above to learn more about various aspects of a news media,<br>
+                such as a gender tracker, sentiment anaylsis on headlines, and more.
+            </p>
+            <snoop-search-bar-component [loading]="loading" [options]="newspaperList"></snoop-search-bar-component>
+        </div>
+    </main>
+</snoop-page-component>

@@ -1,12 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { MatListModule } from '@angular/material/list';
 
 import { RoutingService } from './services/routing.service';
 import { SnoopApiService } from './services/snoop-api.service';
@@ -28,6 +32,10 @@ import { BubbleComponent } from './components/bubble/bubble.component';
         MatInputModule,
         MatAutocompleteModule,
         MatIconModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        MatListModule,
+        RouterModule,
     ],
     declarations: [
         SideMenuComponent,

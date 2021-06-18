@@ -1,8 +1,10 @@
 .search-bar-component {
-    padding: 0 50px;
-    display: flex;
     align-items: center;
     border-radius: 5px;
+    display: flex;
+    // Set font size to 12px to reduce mat form field height
+    font-size: 12px;
+    padding: 0 50px;
 
     .search-form {
         padding-top: 10px;
