@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { RoutingService } from './../../services/routing.service';
 import { DeviceDetectorService } from 'ngx-device-detector';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatDrawerMode } from '@angular/material/sidenav';
 
 @Component({
     selector: 'snoop-side-menu-component',
@@ -18,7 +18,7 @@ export class SideMenuComponent {
         { title: 'Methodology', route: 'methodology' },
     ];
 
-    public mode: string;
+    public mode: MatDrawerMode;
 
 
     constructor(private deviceDetector: DeviceDetectorService, private routingService: RoutingService) {
