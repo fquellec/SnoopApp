@@ -1,9 +1,38 @@
 .page-container {
     display: grid;
+    justify-content: center;
     grid-row-gap: 20px;
 
+    .title {
+        text-align: center;
+    }
+
+    .newspaper-item {
+        display: grid;
+        grid-auto-flow: column;
+        grid-gap: 45px;
+    }
+    
+    mat-icon {
+        color: var(--tertiary);
+        margin-right: 12px;
+    }
+    
     .newspaper-link {
+        display: flex;
+        align-items: center;
         color: var(--text-light);
         text-decoration: none;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .newspaper-item {
+            grid-gap: 25px;
+        }
+
+        .newspaper-label, .newspaper-link {
+            font-size: 14px;
+        }
     }
 }

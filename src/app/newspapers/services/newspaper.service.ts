@@ -12,6 +12,6 @@ export class NewspaperService {
     constructor(private snoopService: SnoopApiService) { }
 
     public getNewsPaperAnalysis(newspaper: string): Observable<Newspaper> {
-        return dummyNewspaperResponse(newspaper);//this.snoopService.getNewspaperData(newspaper);
+        return this.snoopService.getNewspaperData(newspaper);
     }
 }
