@@ -1,0 +1,9 @@
+.page-container {
+    display: grid;
+    grid-row-gap: 20px;
+
+    .newspaper-link {
+        color: var(--text-light);
+        text-decoration: none;
+    }
+}

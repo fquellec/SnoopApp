@@ -15,7 +15,9 @@ export class SnoopApiService {
         return this.newspaperList$ ||
             this.httpService.get(`${this.url}/newslist`).pipe(
                 switchMap((res: any) => {
-                    this.newspaperList$ = of(res.newslist);
+                    const newsList: Newspaper[] = res.newslist;
+                    newsList[0].url = 'https://www.lemonde.fr/';
+                    this.newspaperList$ = of(newsList);
                     return this.newspaperList$;
                 }),
                 share()

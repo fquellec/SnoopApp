@@ -15,6 +15,7 @@ export class SideMenuComponent {
     public menuItems: { title: string, route: string }[] = [
         { title: 'Home', route: '' },
         { title: 'About', route: 'about' },
+        { title: 'Newspapers list', route: 'newspapers-list' },
         { title: 'Methodology', route: 'methodology' },
     ];
 

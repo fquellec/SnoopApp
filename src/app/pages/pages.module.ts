@@ -10,10 +10,11 @@ import { SamplePageComponent } from './components/sample-page/sample-page.compon
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { MethodologyPageComponent } from './components/methodology-page/methodology-page.component';
+import { NewspaperListPageComponent } from './components/newspaper-list-page/newspaper-list-page.component';
 
 @NgModule({
 
-    declarations: [SamplePageComponent, NotFoundComponent, AboutPageComponent, MethodologyPageComponent],
+    declarations: [SamplePageComponent, NotFoundComponent, AboutPageComponent, MethodologyPageComponent, NewspaperListPageComponent],
     imports: [
         CommonModule,
         CoreModule,

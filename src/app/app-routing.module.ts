@@ -5,10 +5,12 @@ import { HomePageComponent } from './home/components/home-page/home-page.compone
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './pages/components/not-found/not-found.component';
+import { NewspaperListPageComponent } from './pages/components/newspaper-list-page/newspaper-list-page.component';
 
 const routes: Routes = [
     { path: 'newspapers/:id', component: NewspaperDetailPageComponent },
     { path: 'about', component: AboutPageComponent },
+    { path: 'newspapers-list', component: NewspaperListPageComponent },
     { path: 'methodology', component: MethodologyPageComponent },
     { path: '', component: HomePageComponent },
     { path: '404', component: NotFoundComponent },
