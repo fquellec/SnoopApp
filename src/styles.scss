@@ -180,6 +180,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     padding: 25px;
     position: relative;
     top: 60px;
+
+    &.big-padding {
+        padding: 40px 50px;
+
+        @media screen and (max-width: 768px) {
+            padding: 28px;
+        }
+    }
 }
 
 .ngx-charts text{ fill: #fff; }

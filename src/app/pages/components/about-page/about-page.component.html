@@ -1,0 +1,17 @@
+<snoop-page-component>
+    <div class="page-container big-padding">
+        <div class="general">
+            <h1>About Snoop</h1>
+            <p>So cool</p>
+        </div>
+
+        <div class="newspapers-list">
+            <h2>Newspapers available</h2>
+            <mat-list *ngIf="!loading">
+                <mat-list-item *ngFor="let newspaper of newspapersList">{{ newspaper.title }}</mat-list-item>
+            </mat-list>
+            <ngx-spinner class="spinner" [showSpinner]="loading" [fullScreen]="false" type="ball-beat" style="position: relative; left: 13px;" color="#ffffff" bdColor="none" size="small">
+            </ngx-spinner>
+        </div>
+    </div>
+</snoop-page-component>

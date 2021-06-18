@@ -7,16 +7,16 @@ import { Newspaper } from '../models/newspaper.model';
 @Injectable()
 export class SnoopApiService {
     private url = 'https://snoop-app-server.vercel.app/api';
-    private newsPaperList?: Observable<Newspaper[]>;
+    private newspaperList$?: Observable<Newspaper[]>;
 
     constructor(private httpService: HttpService) { }
 
     public getNewspapersList(): Observable<Newspaper[]> {
-        return this.newsPaperList ||
+        return this.newspaperList$ ||
             this.httpService.get(`${this.url}/newslist`).pipe(
                 switchMap((res: any) => {
-                    this.newsPaperList = of(res.newslist);
-                    return this.newsPaperList;
+                    this.newspaperList$ = of(res.newslist);
+                    return this.newspaperList$;
                 }),
                 share()
             );

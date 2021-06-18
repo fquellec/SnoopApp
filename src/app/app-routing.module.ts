@@ -1,3 +1,5 @@
+import { MethodologyPageComponent } from './pages/components/methodology-page/methodology-page.component';
+import { AboutPageComponent } from './pages/components/about-page/about-page.component';
 import { NewspaperDetailPageComponent } from './newspapers/components/newspaper-detail-page/newspaper-detail-page.component';
 import { HomePageComponent } from './home/components/home-page/home-page.component';
 import { NgModule } from '@angular/core';
@@ -6,6 +8,8 @@ import { NotFoundComponent } from './pages/components/not-found/not-found.compon
 
 const routes: Routes = [
     { path: 'newspapers/:id', component: NewspaperDetailPageComponent },
+    { path: 'about', component: AboutPageComponent },
+    { path: 'methodology', component: MethodologyPageComponent },
     { path: '', component: HomePageComponent },
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '/404' }
