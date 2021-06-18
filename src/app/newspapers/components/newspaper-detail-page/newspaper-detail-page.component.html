@@ -1,5 +1,5 @@
 <snoop-page-component [displayNavSearch]="true">
-    <div class="page-container" [ngClass]="{'display-analysis': displayAnalysis, 'small': isMobile}">
+    <div class="page-container big-padding" [ngClass]="{'display-analysis': displayAnalysis, 'small': isMobile}">
         <ng-container *ngIf="!loading ; else loader">
             <ng-container *ngIf="newspaper ; else noData">
                 <div class="analysis-container" [@analysisAnimation] (@analysisAnimation.done)="onAnalysisAnimationDone($event)" *ngIf="displayedAnalysis">
